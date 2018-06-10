@@ -45,12 +45,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="KLUB_U_Conroller.cs" />
     <Compile Include="KLUB_U.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="KLUB_U.Designer.cs">
       <DependentUpon>KLUB_U.cs</DependentUpon>
     </Compile>
+    <Compile Include="My_KLUB_U_Controller.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="KLUB_U.resx">

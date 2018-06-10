@@ -59,7 +59,7 @@
             this.nPathTextBox = new System.Windows.Forms.TextBox();
             this.labelNPath = new System.Windows.Forms.Label();
             this.labelYP = new System.Windows.Forms.Label();
-            this.PressureYPTexBox = new System.Windows.Forms.TextBox();
+            this.PressureURTexBox = new System.Windows.Forms.TextBox();
             this.labelPressure2 = new System.Windows.Forms.Label();
             this.labelTM = new System.Windows.Forms.Label();
             this.pressureTMTextBox = new System.Windows.Forms.TextBox();
@@ -107,7 +107,7 @@
             this.button5 = new System.Windows.Forms.Button();
             this.blinkTrainModeTimer = new System.Windows.Forms.Timer(this.components);
             this.dashboard = new System.Windows.Forms.Panel();
-            this.button10 = new System.Windows.Forms.Button();
+            this.buttonRB = new System.Windows.Forms.Button();
             this.controlPanel = new System.Windows.Forms.Panel();
             this.frequencyPanel = new System.Windows.Forms.Panel();
             this.frequency75RadioButton = new System.Windows.Forms.RadioButton();
@@ -115,6 +115,9 @@
             this.frequency25RadioButton = new System.Windows.Forms.RadioButton();
             this.frequencyControlLabel = new System.Windows.Forms.Label();
             this.cassetteCheckBox = new System.Windows.Forms.CheckBox();
+            this.buttonRBS = new System.Windows.Forms.Button();
+            this.checkBox1 = new System.Windows.Forms.CheckBox();
+            this.checkBox2 = new System.Windows.Forms.CheckBox();
             this.dashboardTop.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.mainPathIndicator)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.literalPathIndicalor)).BeginInit();
@@ -348,7 +351,7 @@
             this.dashboardRight.Controls.Add(this.nPathTextBox);
             this.dashboardRight.Controls.Add(this.labelNPath);
             this.dashboardRight.Controls.Add(this.labelYP);
-            this.dashboardRight.Controls.Add(this.PressureYPTexBox);
+            this.dashboardRight.Controls.Add(this.PressureURTexBox);
             this.dashboardRight.Controls.Add(this.labelPressure2);
             this.dashboardRight.Controls.Add(this.labelTM);
             this.dashboardRight.Controls.Add(this.pressureTMTextBox);
@@ -485,17 +488,17 @@
             this.labelYP.TabIndex = 18;
             this.labelYP.Text = "УР";
             // 
-            // PressureYPTexBox
+            // PressureURTexBox
             // 
-            this.PressureYPTexBox.BackColor = System.Drawing.Color.DimGray;
-            this.PressureYPTexBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.PressureYPTexBox.Enabled = false;
-            this.PressureYPTexBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.PressureYPTexBox.ForeColor = System.Drawing.Color.GreenYellow;
-            this.PressureYPTexBox.Location = new System.Drawing.Point(0, 94);
-            this.PressureYPTexBox.Name = "PressureYPTexBox";
-            this.PressureYPTexBox.Size = new System.Drawing.Size(68, 31);
-            this.PressureYPTexBox.TabIndex = 17;
+            this.PressureURTexBox.BackColor = System.Drawing.Color.DimGray;
+            this.PressureURTexBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.PressureURTexBox.Enabled = false;
+            this.PressureURTexBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.PressureURTexBox.ForeColor = System.Drawing.Color.GreenYellow;
+            this.PressureURTexBox.Location = new System.Drawing.Point(0, 94);
+            this.PressureURTexBox.Name = "PressureURTexBox";
+            this.PressureURTexBox.Size = new System.Drawing.Size(68, 31);
+            this.PressureURTexBox.TabIndex = 17;
             // 
             // labelPressure2
             // 
@@ -1084,17 +1087,17 @@
             this.dashboard.Size = new System.Drawing.Size(670, 752);
             this.dashboard.TabIndex = 20;
             // 
-            // button10
+            // buttonRB
             // 
-            this.button10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.button10.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.button10.ForeColor = System.Drawing.Color.Transparent;
-            this.button10.Location = new System.Drawing.Point(13, 770);
-            this.button10.Name = "button10";
-            this.button10.Size = new System.Drawing.Size(170, 39);
-            this.button10.TabIndex = 21;
-            this.button10.Text = "button10";
-            this.button10.UseVisualStyleBackColor = false;
+            this.buttonRB.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.buttonRB.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.buttonRB.ForeColor = System.Drawing.Color.Transparent;
+            this.buttonRB.Location = new System.Drawing.Point(13, 770);
+            this.buttonRB.Name = "buttonRB";
+            this.buttonRB.Size = new System.Drawing.Size(170, 39);
+            this.buttonRB.TabIndex = 21;
+            this.buttonRB.Text = "РБ";
+            this.buttonRB.UseVisualStyleBackColor = false;
             // 
             // controlPanel
             // 
@@ -1176,14 +1179,53 @@
             this.cassetteCheckBox.Text = "Касета регистрации";
             this.cassetteCheckBox.UseVisualStyleBackColor = true;
             // 
+            // buttonRBS
+            // 
+            this.buttonRBS.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.buttonRBS.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.buttonRBS.ForeColor = System.Drawing.Color.Transparent;
+            this.buttonRBS.Location = new System.Drawing.Point(392, 770);
+            this.buttonRBS.Name = "buttonRBS";
+            this.buttonRBS.Size = new System.Drawing.Size(170, 39);
+            this.buttonRBS.TabIndex = 23;
+            this.buttonRBS.Text = "РБС";
+            this.buttonRBS.UseVisualStyleBackColor = false;
+            // 
+            // checkBox1
+            // 
+            this.checkBox1.AutoSize = true;
+            this.checkBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.checkBox1.ForeColor = System.Drawing.Color.Black;
+            this.checkBox1.Location = new System.Drawing.Point(189, 783);
+            this.checkBox1.Name = "checkBox1";
+            this.checkBox1.Size = new System.Drawing.Size(105, 20);
+            this.checkBox1.TabIndex = 24;
+            this.checkBox1.Text = "Зажать РБ";
+            this.checkBox1.UseVisualStyleBackColor = true;
+            // 
+            // checkBox2
+            // 
+            this.checkBox2.AutoSize = true;
+            this.checkBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.checkBox2.ForeColor = System.Drawing.Color.Black;
+            this.checkBox2.Location = new System.Drawing.Point(568, 783);
+            this.checkBox2.Name = "checkBox2";
+            this.checkBox2.Size = new System.Drawing.Size(115, 20);
+            this.checkBox2.TabIndex = 25;
+            this.checkBox2.Text = "Зажать РБС";
+            this.checkBox2.UseVisualStyleBackColor = true;
+            // 
             // KLUB_U
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.ClientSize = new System.Drawing.Size(1184, 821);
+            this.Controls.Add(this.checkBox2);
+            this.Controls.Add(this.checkBox1);
+            this.Controls.Add(this.buttonRBS);
             this.Controls.Add(this.controlPanel);
-            this.Controls.Add(this.button10);
+            this.Controls.Add(this.buttonRB);
             this.Controls.Add(this.dashboard);
             this.ForeColor = System.Drawing.Color.White;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
@@ -1218,6 +1260,7 @@
             this.frequencyPanel.ResumeLayout(false);
             this.frequencyPanel.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -1244,7 +1287,7 @@
         private System.Windows.Forms.TextBox pressureTMTextBox;
         private System.Windows.Forms.Label labelPressure1;
         private System.Windows.Forms.Label labelYP;
-        private System.Windows.Forms.TextBox PressureYPTexBox;
+        private System.Windows.Forms.TextBox PressureURTexBox;
         private System.Windows.Forms.Label labelPressure2;
         private System.Windows.Forms.Label labelTM;
         private System.Windows.Forms.PictureBox banBrakeReleaseIndicator;
@@ -1301,7 +1344,7 @@
         private System.Windows.Forms.Timer blinkTrainModeTimer;
         private System.Windows.Forms.Label labelAcceleration;
         private System.Windows.Forms.Panel dashboard;
-        private System.Windows.Forms.Button button10;
+        private System.Windows.Forms.Button buttonRB;
         private System.Windows.Forms.Panel controlPanel;
         private System.Windows.Forms.Panel frequencyPanel;
         private System.Windows.Forms.RadioButton frequency75RadioButton;
@@ -1309,5 +1352,8 @@
         private System.Windows.Forms.RadioButton frequency25RadioButton;
         private System.Windows.Forms.Label frequencyControlLabel;
         private System.Windows.Forms.CheckBox cassetteCheckBox;
+        private System.Windows.Forms.Button buttonRBS;
+        private System.Windows.Forms.CheckBox checkBox1;
+        private System.Windows.Forms.CheckBox checkBox2;
     }
 }

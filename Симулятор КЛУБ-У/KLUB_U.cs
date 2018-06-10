@@ -12,10 +12,13 @@ namespace Симулятор_КЛУБ_У
 {
     public partial class KLUB_U : Form
     {
+        KLUB_U_Conroller klub_u_controller;
+
 
         public KLUB_U()
         {
             InitializeComponent();
+            klub_u_controller = new My_KLUB_U_Controller(this);
         }
 
         
@@ -119,7 +122,7 @@ namespace Симулятор_КЛУБ_У
         public void SetPressureTM(float pressure) { pressureTMTextBox.Text = pressure.ToString(); }
 
         //вывод давления УР на приборную панель
-        public void SetPressureYP(float pressure) { PressureYPTexBox.Text = pressure.ToString(); }
+        public void SetPressureUR(float pressure) { PressureURTexBox.Text = pressure.ToString(); }
 
         //вывод частоты АЛСН на приборную панель
         public void SetFrequency(byte frequency) { frequencyTextBox.Text = frequency.ToString(); }
@@ -132,6 +135,9 @@ namespace Симулятор_КЛУБ_У
 
         //вывод коэффициента торможения на приборную панель
         public void SetBrakingFactor(float brakingFactor) { brakingFactorTextBox.Text = brakingFactor.ToString(); }
+
+        //вывод растояния до цели на приборную панель
+        public void SetDistance(int distance) { distanceTexBox.Text = distance.ToString(); }
 
         //вывод информации в информационную строку на приборной панели
         public void SetInfo(String info) { infoTexBox.Text = info; }
@@ -155,7 +161,7 @@ namespace Симулятор_КЛУБ_У
 
         private void button0_Click(object sender, EventArgs e)
         {
-
+            klub_u_controller.PressButton0();
         }
 
         private void button1_Click(object sender, EventArgs e)
