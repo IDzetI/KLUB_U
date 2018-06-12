@@ -4,10 +4,12 @@ namespace Симулятор_КЛУБ_У
 {
     abstract class KLUB_U_Conroller
     {
-        private KLUB_U Klub_u { get; set; }
+        protected KLUB_U Klub_u { get; set; }
 
         protected bool HasCassette { get; set; }
         protected bool IsAlarm { get; set; }
+        protected bool RB { get; set; }
+        protected bool RBS { get; set; }
         protected byte Frequency { get; set; }
         protected byte PathNumber { get; set; }
         protected int Coordinate { get; set; }
@@ -18,7 +20,7 @@ namespace Симулятор_КЛУБ_У
         protected float Acceleration { get; set; }
         protected float BrakingFactor { get; set; }
         protected String Info { get; set; }
-        protected String NameNextStation { get; set; }
+        protected String NameNextStation { get; set; } 
 
         // true = path is main; false = path is literal 
         protected bool Path { get; set; }

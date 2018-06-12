@@ -80,8 +80,8 @@
             this.infoTexBox = new System.Windows.Forms.TextBox();
             this.dashboardBot = new System.Windows.Forms.Panel();
             this.buttonOTPR = new System.Windows.Forms.Button();
-            this.buttonOC = new System.Windows.Forms.Button();
-            this.buttonk20 = new System.Windows.Forms.Button();
+            this.buttonOS = new System.Windows.Forms.Button();
+            this.buttonK20 = new System.Windows.Forms.Button();
             this.buttonPODTYAG = new System.Windows.Forms.Button();
             this.buttonF = new System.Windows.Forms.Button();
             this.buttonRMP = new System.Windows.Forms.Button();
@@ -92,7 +92,7 @@
             this.buttonI = new System.Windows.Forms.Button();
             this.buttonL = new System.Windows.Forms.Button();
             this.buttonP = new System.Windows.Forms.Button();
-            this.button_O_ = new System.Windows.Forms.Button();
+            this.buttonOK = new System.Windows.Forms.Button();
             this.buttonMinus = new System.Windows.Forms.Button();
             this.buttonPlus = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
@@ -116,8 +116,8 @@
             this.frequencyControlLabel = new System.Windows.Forms.Label();
             this.cassetteCheckBox = new System.Windows.Forms.CheckBox();
             this.buttonRBS = new System.Windows.Forms.Button();
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
-            this.checkBox2 = new System.Windows.Forms.CheckBox();
+            this.RBcheckBox = new System.Windows.Forms.CheckBox();
+            this.RBScheckBox = new System.Windows.Forms.CheckBox();
             this.dashboardTop.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.mainPathIndicator)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.literalPathIndicalor)).BeginInit();
@@ -689,8 +689,8 @@
             // 
             this.dashboardBot.BackColor = System.Drawing.Color.Black;
             this.dashboardBot.Controls.Add(this.buttonOTPR);
-            this.dashboardBot.Controls.Add(this.buttonOC);
-            this.dashboardBot.Controls.Add(this.buttonk20);
+            this.dashboardBot.Controls.Add(this.buttonOS);
+            this.dashboardBot.Controls.Add(this.buttonK20);
             this.dashboardBot.Controls.Add(this.buttonPODTYAG);
             this.dashboardBot.Controls.Add(this.buttonF);
             this.dashboardBot.Controls.Add(this.buttonRMP);
@@ -701,7 +701,7 @@
             this.dashboardBot.Controls.Add(this.buttonI);
             this.dashboardBot.Controls.Add(this.buttonL);
             this.dashboardBot.Controls.Add(this.buttonP);
-            this.dashboardBot.Controls.Add(this.button_O_);
+            this.dashboardBot.Controls.Add(this.buttonOK);
             this.dashboardBot.Controls.Add(this.buttonMinus);
             this.dashboardBot.Controls.Add(this.buttonPlus);
             this.dashboardBot.Controls.Add(this.button4);
@@ -732,31 +732,31 @@
             this.buttonOTPR.UseVisualStyleBackColor = false;
             this.buttonOTPR.Click += new System.EventHandler(this.buttonOTPR_Click);
             // 
-            // buttonOC
+            // buttonOS
             // 
-            this.buttonOC.BackColor = System.Drawing.Color.Black;
-            this.buttonOC.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.buttonOC.ForeColor = System.Drawing.Color.White;
-            this.buttonOC.Location = new System.Drawing.Point(179, 120);
-            this.buttonOC.Name = "buttonOC";
-            this.buttonOC.Size = new System.Drawing.Size(60, 40);
-            this.buttonOC.TabIndex = 24;
-            this.buttonOC.Text = "ОС";
-            this.buttonOC.UseVisualStyleBackColor = false;
-            this.buttonOC.Click += new System.EventHandler(this.buttonOC_Click);
+            this.buttonOS.BackColor = System.Drawing.Color.Black;
+            this.buttonOS.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.buttonOS.ForeColor = System.Drawing.Color.White;
+            this.buttonOS.Location = new System.Drawing.Point(179, 120);
+            this.buttonOS.Name = "buttonOS";
+            this.buttonOS.Size = new System.Drawing.Size(60, 40);
+            this.buttonOS.TabIndex = 24;
+            this.buttonOS.Text = "ОС";
+            this.buttonOS.UseVisualStyleBackColor = false;
+            this.buttonOS.Click += new System.EventHandler(this.buttonOS_Click);
             // 
-            // buttonk20
+            // buttonK20
             // 
-            this.buttonk20.BackColor = System.Drawing.Color.Black;
-            this.buttonk20.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.buttonk20.ForeColor = System.Drawing.Color.White;
-            this.buttonk20.Location = new System.Drawing.Point(245, 119);
-            this.buttonk20.Name = "buttonk20";
-            this.buttonk20.Size = new System.Drawing.Size(60, 40);
-            this.buttonk20.TabIndex = 23;
-            this.buttonk20.Text = "k20";
-            this.buttonk20.UseVisualStyleBackColor = false;
-            this.buttonk20.Click += new System.EventHandler(this.buttonk20_Click);
+            this.buttonK20.BackColor = System.Drawing.Color.Black;
+            this.buttonK20.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.buttonK20.ForeColor = System.Drawing.Color.White;
+            this.buttonK20.Location = new System.Drawing.Point(245, 119);
+            this.buttonK20.Name = "buttonK20";
+            this.buttonK20.Size = new System.Drawing.Size(60, 40);
+            this.buttonK20.TabIndex = 23;
+            this.buttonK20.Text = "k20";
+            this.buttonK20.UseVisualStyleBackColor = false;
+            this.buttonK20.Click += new System.EventHandler(this.buttonK20_Click);
             // 
             // buttonPODTYAG
             // 
@@ -888,18 +888,18 @@
             this.buttonP.UseVisualStyleBackColor = false;
             this.buttonP.Click += new System.EventHandler(this.buttonP_Click);
             // 
-            // button_O_
+            // buttonOK
             // 
-            this.button_O_.BackColor = System.Drawing.Color.Black;
-            this.button_O_.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.button_O_.ForeColor = System.Drawing.Color.White;
-            this.button_O_.Location = new System.Drawing.Point(368, 120);
-            this.button_O_.Name = "button_O_";
-            this.button_O_.Size = new System.Drawing.Size(60, 40);
-            this.button_O_.TabIndex = 12;
-            this.button_O_.Text = ">O<";
-            this.button_O_.UseVisualStyleBackColor = false;
-            this.button_O_.Click += new System.EventHandler(this.button_O__Click);
+            this.buttonOK.BackColor = System.Drawing.Color.Black;
+            this.buttonOK.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.buttonOK.ForeColor = System.Drawing.Color.White;
+            this.buttonOK.Location = new System.Drawing.Point(368, 120);
+            this.buttonOK.Name = "buttonOK";
+            this.buttonOK.Size = new System.Drawing.Size(60, 40);
+            this.buttonOK.TabIndex = 12;
+            this.buttonOK.Text = ">O<";
+            this.buttonOK.UseVisualStyleBackColor = false;
+            this.buttonOK.Click += new System.EventHandler(this.buttonOK_Click);
             // 
             // buttonMinus
             // 
@@ -1098,6 +1098,7 @@
             this.buttonRB.TabIndex = 21;
             this.buttonRB.Text = "РБ";
             this.buttonRB.UseVisualStyleBackColor = false;
+            this.buttonRB.Click += new System.EventHandler(this.buttonRB_Click);
             // 
             // controlPanel
             // 
@@ -1156,6 +1157,7 @@
             this.frequency25RadioButton.TabStop = true;
             this.frequency25RadioButton.Text = "25 Гц";
             this.frequency25RadioButton.UseVisualStyleBackColor = true;
+            this.frequency25RadioButton.CheckedChanged += new System.EventHandler(this.frequencyRadioButtons_CheckedChanged);
             // 
             // frequencyControlLabel
             // 
@@ -1178,6 +1180,7 @@
             this.cassetteCheckBox.TabIndex = 0;
             this.cassetteCheckBox.Text = "Касета регистрации";
             this.cassetteCheckBox.UseVisualStyleBackColor = true;
+            this.cassetteCheckBox.CheckedChanged += new System.EventHandler(this.cassetteCheckBox_CheckedChanged);
             // 
             // buttonRBS
             // 
@@ -1190,30 +1193,33 @@
             this.buttonRBS.TabIndex = 23;
             this.buttonRBS.Text = "РБС";
             this.buttonRBS.UseVisualStyleBackColor = false;
+            this.buttonRBS.Click += new System.EventHandler(this.buttonRBS_Click);
             // 
-            // checkBox1
+            // RBcheckBox
             // 
-            this.checkBox1.AutoSize = true;
-            this.checkBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.checkBox1.ForeColor = System.Drawing.Color.Black;
-            this.checkBox1.Location = new System.Drawing.Point(189, 783);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(105, 20);
-            this.checkBox1.TabIndex = 24;
-            this.checkBox1.Text = "Зажать РБ";
-            this.checkBox1.UseVisualStyleBackColor = true;
+            this.RBcheckBox.AutoSize = true;
+            this.RBcheckBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.RBcheckBox.ForeColor = System.Drawing.Color.Black;
+            this.RBcheckBox.Location = new System.Drawing.Point(189, 783);
+            this.RBcheckBox.Name = "RBcheckBox";
+            this.RBcheckBox.Size = new System.Drawing.Size(105, 20);
+            this.RBcheckBox.TabIndex = 24;
+            this.RBcheckBox.Text = "Зажать РБ";
+            this.RBcheckBox.UseVisualStyleBackColor = true;
+            this.RBcheckBox.CheckedChanged += new System.EventHandler(this.RBcheckBox_CheckedChanged);
             // 
-            // checkBox2
+            // RBScheckBox
             // 
-            this.checkBox2.AutoSize = true;
-            this.checkBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.checkBox2.ForeColor = System.Drawing.Color.Black;
-            this.checkBox2.Location = new System.Drawing.Point(568, 783);
-            this.checkBox2.Name = "checkBox2";
-            this.checkBox2.Size = new System.Drawing.Size(115, 20);
-            this.checkBox2.TabIndex = 25;
-            this.checkBox2.Text = "Зажать РБС";
-            this.checkBox2.UseVisualStyleBackColor = true;
+            this.RBScheckBox.AutoSize = true;
+            this.RBScheckBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.RBScheckBox.ForeColor = System.Drawing.Color.Black;
+            this.RBScheckBox.Location = new System.Drawing.Point(568, 783);
+            this.RBScheckBox.Name = "RBScheckBox";
+            this.RBScheckBox.Size = new System.Drawing.Size(115, 20);
+            this.RBScheckBox.TabIndex = 25;
+            this.RBScheckBox.Text = "Зажать РБС";
+            this.RBScheckBox.UseVisualStyleBackColor = true;
+            this.RBScheckBox.CheckedChanged += new System.EventHandler(this.RBScheckBox_CheckedChanged);
             // 
             // KLUB_U
             // 
@@ -1221,8 +1227,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.ClientSize = new System.Drawing.Size(1184, 821);
-            this.Controls.Add(this.checkBox2);
-            this.Controls.Add(this.checkBox1);
+            this.Controls.Add(this.RBScheckBox);
+            this.Controls.Add(this.RBcheckBox);
             this.Controls.Add(this.buttonRBS);
             this.Controls.Add(this.controlPanel);
             this.Controls.Add(this.buttonRB);
@@ -1313,8 +1319,8 @@
         private System.Windows.Forms.TextBox infoTexBox;
         private System.Windows.Forms.Panel dashboardBot;
         private System.Windows.Forms.Button buttonOTPR;
-        private System.Windows.Forms.Button buttonOC;
-        private System.Windows.Forms.Button buttonk20;
+        private System.Windows.Forms.Button buttonOS;
+        private System.Windows.Forms.Button buttonK20;
         private System.Windows.Forms.Button buttonPODTYAG;
         private System.Windows.Forms.Button buttonF;
         private System.Windows.Forms.Button buttonRMP;
@@ -1325,7 +1331,7 @@
         private System.Windows.Forms.Button buttonI;
         private System.Windows.Forms.Button buttonL;
         private System.Windows.Forms.Button buttonP;
-        private System.Windows.Forms.Button button_O_;
+        private System.Windows.Forms.Button buttonOK;
         private System.Windows.Forms.Button buttonMinus;
         private System.Windows.Forms.Button buttonPlus;
         private System.Windows.Forms.Button button4;
@@ -1353,7 +1359,7 @@
         private System.Windows.Forms.Label frequencyControlLabel;
         private System.Windows.Forms.CheckBox cassetteCheckBox;
         private System.Windows.Forms.Button buttonRBS;
-        private System.Windows.Forms.CheckBox checkBox1;
-        private System.Windows.Forms.CheckBox checkBox2;
+        private System.Windows.Forms.CheckBox RBcheckBox;
+        private System.Windows.Forms.CheckBox RBScheckBox;
     }
 }

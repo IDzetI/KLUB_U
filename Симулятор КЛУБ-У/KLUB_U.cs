@@ -12,13 +12,13 @@ namespace Симулятор_КЛУБ_У
 {
     public partial class KLUB_U : Form
     {
-        KLUB_U_Conroller klub_u_controller;
+        KLUB_U_Conroller Controller;
 
 
         public KLUB_U()
         {
             InitializeComponent();
-            klub_u_controller = new My_KLUB_U_Controller(this);
+            Controller = new My_KLUB_U_Controller(this);
         }
 
         
@@ -93,9 +93,7 @@ namespace Симулятор_КЛУБ_У
         public void SetForwardDirection() { directionIndicator.Image = Properties.Resources.directionForward;}
         public void SetBacwardDirection() { directionIndicator.Image = Properties.Resources.directionBackward; }
         public void SetNonDirection() { directionIndicator.Image = Properties.Resources.direction0; }
-
-
-
+        
 
 
         /*        Вывод данных на приборную панель         */
@@ -142,136 +140,77 @@ namespace Симулятор_КЛУБ_У
         //вывод информации в информационную строку на приборной панели
         public void SetInfo(String info) { infoTexBox.Text = info; }
 
+
+
         /*          Обрабатывание нажатий на кнопки         */
 
-        private void buttonPlus_Click(object sender, EventArgs e)
+        private void buttonPlus_Click(object sender, EventArgs e) { Controller.PressButtonPlus(); }
+        private void buttonMinus_Click(object sender, EventArgs e) { Controller.PressButtonMinus(); }
+        private void buttonOK_Click(object sender, EventArgs e) { Controller.PressButtonOK(); }
+
+        private void buttonP_Click(object sender, EventArgs e) { Controller.PressButtonP(); }
+        private void buttonL_Click(object sender, EventArgs e) { Controller.PressButtonL(); }
+        private void buttonI_Click(object sender, EventArgs e) { Controller.PressButtonI(); }
+        private void buttonK_Click(object sender, EventArgs e) { Controller.PressButtonK(); }
+
+        private void button0_Click(object sender, EventArgs e) { Controller.PressButton0(); }
+        private void button1_Click(object sender, EventArgs e) { Controller.PressButton1(); }
+        private void button2_Click(object sender, EventArgs e) { Controller.PressButton2(); }
+        private void button3_Click(object sender, EventArgs e) { Controller.PressButton3(); }
+        private void button4_Click(object sender, EventArgs e) { Controller.PressButton4(); }
+        private void button5_Click(object sender, EventArgs e) { Controller.PressButton5(); }
+        private void button6_Click(object sender, EventArgs e) { Controller.PressButton6(); }
+        private void button7_Click(object sender, EventArgs e) { Controller.PressButton7(); }
+        private void button8_Click(object sender, EventArgs e) { Controller.PressButton8(); }
+        private void button9_Click(object sender, EventArgs e) { Controller.PressButton9(); }
+
+        private void buttonVK_Click(object sender, EventArgs e) { Controller.PressButtonVK(); }
+        private void buttonRMP_Click(object sender, EventArgs e) { Controller.PressButtonRMP(); }
+        private void buttonF_Click(object sender, EventArgs e) { Controller.PressButtonF(); }
+
+        private void buttonUp_Click(object sender, EventArgs e) { Controller.PressButtonUP(); }
+        private void buttonDown_Click(object sender, EventArgs e) { Controller.PressButtonDOWN(); }
+
+        private void buttonPODTYAG_Click(object sender, EventArgs e) { Controller.PressButtonPODTYAG(); }
+        private void buttonOTPR_Click(object sender, EventArgs e) { Controller.PressButtonOTPR(); }
+        private void buttonOS_Click(object sender, EventArgs e) { Controller.PressButtonOS(); }
+        private void buttonK20_Click(object sender, EventArgs e) { Controller.PressButtonK20(); }
+
+        private void buttonRB_Click(object sender, EventArgs e) { Controller.PressButtonRB(); }
+        private void RBcheckBox_CheckedChanged(object sender, EventArgs e)
         {
-            
+            if (RBcheckBox.Checked)
+                Controller.HoldDownRB();
+            else
+                Controller.ReleaseRB();
         }
 
-        private void buttonMinus_Click(object sender, EventArgs e)
+        private void buttonRBS_Click(object sender, EventArgs e) { Controller.ReleaseRBS(); }
+        private void RBScheckBox_CheckedChanged(object sender, EventArgs e)
         {
-            
-        }
-        
-        private void button_O__Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button0_Click(object sender, EventArgs e)
-        {
-            klub_u_controller.PressButton0();
+            if (RBScheckBox.Checked)
+                Controller.HoldDownRBS();
+            else
+                Controller.ReleaseRBS();
         }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
 
+
+        /*          input panel         */
+
+        private void cassetteCheckBox_CheckedChanged(object sender, EventArgs e)
+        {
+            if (cassetteCheckBox.Checked)
+                Controller.InstallCassette();
+            else
+                Controller.InstallCassette();
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void frequencyRadioButtons_CheckedChanged(object sender, EventArgs e)
         {
-
-        }
-
-        private void button3_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button4_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button5_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button6_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button7_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button8_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button9_Click(object sender, EventArgs e)
-        {
-
-        }
-        
-        private void buttonOTPR_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void buttonOC_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void buttonk20_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void buttonUp_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void buttonDown_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void buttonF_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void buttonVK_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void buttonRMP_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void buttonP_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void buttonL_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void buttonI_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void buttonK_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void buttonPODTYAG_Click(object sender, EventArgs e)
-        {
-
+            if (frequency25RadioButton.Checked) Controller.SelectFrequency25();
+            else if (frequency50RadioButton.Checked) Controller.SelectFrequency50();
+            else if (frequency75RadioButton.Checked) Controller.SelectFrequency75();
         }
     }     
 } 
