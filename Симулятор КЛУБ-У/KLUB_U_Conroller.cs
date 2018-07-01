@@ -4,12 +4,15 @@ namespace Симулятор_КЛУБ_У
 {
     abstract class KLUB_U_Conroller
     {
+        /*          Variables       */
+
         protected KLUB_U Klub_u { get; set; }
 
         protected bool HasCassette { get; set; }
         protected bool IsAlarm { get; set; }
         protected bool RB { get; set; }
         protected bool RBS { get; set; }
+        protected bool CorrectPath { get; set; }
         protected byte Frequency { get; set; }
         protected byte PathNumber { get; set; }
         protected int Coordinate { get; set; }
@@ -20,13 +23,22 @@ namespace Симулятор_КЛУБ_У
         protected float Acceleration { get; set; }
         protected float BrakingFactor { get; set; }
         protected String Info { get; set; }
-        protected String NameNextStation { get; set; } 
+        protected String NameNextStation { get; set; }
+        protected int[] TrainParametrs { get; set; }
 
         // true = path is main; false = path is literal 
         protected bool Path { get; set; }
 
-        // in binary representation
-        protected byte TrafficLights { get; set; }
+        // 8 - blink
+        // 7 - green4
+        // 6 - green3
+        // 5 - green2
+        // 4 - green1
+        // 3 - yellow
+        // 2 - yellow red
+        // 1 - red
+        // 0 - white
+        protected bool[] Trafficlights { get; set; }
 
         // true if train dosn't move
         protected bool IsStop { get; set; }
@@ -34,7 +46,9 @@ namespace Симулятор_КЛУБ_У
         // distance to the target
         protected int Distance { get; set; }
 
-        // 0 - Maneuring; 1 - Train mode; 2 - Double traction mode 
+        //  0 - Maneuring; 
+        //  1 - Train mode; 
+        //  2 - Double traction mode 
         protected byte MovingMode { get; set; }
 
         // true if the brake release is blocked
@@ -44,9 +58,39 @@ namespace Симулятор_КЛУБ_У
         //time of arrival at the next station
         protected int TimeToNextStation { get; set; }
         protected int ActualTime { get; set; }
-        
 
-        public KLUB_U_Conroller(KLUB_U klub_u) { Klub_u = klub_u; }
+
+        
+        
+        
+        /*          Constants           */
+
+        protected readonly String[] InputInfoParametrs =
+            {
+                "Табельный номер машиниста", "Номер поезда",
+                "Длина поезда в осях","Длина поезда в вагонах",
+                "Масса поезда, т"
+            };
+
+
+        
+        
+        /*          Constructor         */
+
+        public KLUB_U_Conroller(KLUB_U klub_u)
+        {
+            Klub_u = klub_u;
+            ActualSpeed = 0;
+            Frequency = 50;
+            Info = "";
+            klub_u.SetFrequency(Frequency);
+            TrainParametrs = new Int32[]{ 0, 0, 0, 0, 0};
+        }
+
+
+
+
+        /*          Abstract functions  */
 
         abstract public void PressButton0();
         abstract public void PressButton1();
@@ -89,17 +133,27 @@ namespace Симулятор_КЛУБ_У
         abstract public void HoldDownRBS();
         abstract public void ReleaseRBS();
 
+        
+        
+        
         /*          admin control       */
 
+        //variables            
         protected byte InputFrequency { get; set; }
         protected bool InputHasCassatte { get; set; }
+        protected bool ManualCoordinateControl { get; set; }
 
+
+        //functions
         abstract public void SelectFrequency25();
         abstract public void SelectFrequency50();
         abstract public void SelectFrequency75();
 
         abstract public void InstallCassette();
         abstract public void UninstallCassette();
+
+        abstract public void OnManualCoordinateControlMode();
+        abstract public void OffManualCoordinateControlMode();
     }
 
 }

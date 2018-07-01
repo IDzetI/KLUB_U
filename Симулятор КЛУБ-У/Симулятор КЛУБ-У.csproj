@@ -45,7 +45,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Command.cs" />
+    <Compile Include="InputNumdetTool.cs" />
     <Compile Include="KLUB_U_Conroller.cs" />
     <Compile Include="KLUB_U.cs">
       <SubType>Form</SubType>

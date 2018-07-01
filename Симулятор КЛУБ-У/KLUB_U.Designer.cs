@@ -118,6 +118,10 @@
             this.buttonRBS = new System.Windows.Forms.Button();
             this.RBcheckBox = new System.Windows.Forms.CheckBox();
             this.RBScheckBox = new System.Windows.Forms.CheckBox();
+            this.manualCoordinateControlCheckBox = new System.Windows.Forms.CheckBox();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.panelControlCoordinate1 = new System.Windows.Forms.Panel();
             this.dashboardTop.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.mainPathIndicator)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.literalPathIndicalor)).BeginInit();
@@ -139,6 +143,7 @@
             this.dashboard.SuspendLayout();
             this.controlPanel.SuspendLayout();
             this.frequencyPanel.SuspendLayout();
+            this.panelControlCoordinate1.SuspendLayout();
             this.SuspendLayout();
             // 
             // dashboardTop
@@ -184,11 +189,11 @@
             // 
             this.timeTextBox.BackColor = System.Drawing.Color.DimGray;
             this.timeTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.timeTextBox.Enabled = false;
             this.timeTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.timeTextBox.ForeColor = System.Drawing.Color.GreenYellow;
             this.timeTextBox.Location = new System.Drawing.Point(410, 76);
             this.timeTextBox.Name = "timeTextBox";
+            this.timeTextBox.ReadOnly = true;
             this.timeTextBox.Size = new System.Drawing.Size(140, 31);
             this.timeTextBox.TabIndex = 12;
             this.timeTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
@@ -207,11 +212,11 @@
             // 
             this.starionTexBox.BackColor = System.Drawing.Color.DimGray;
             this.starionTexBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.starionTexBox.Enabled = false;
             this.starionTexBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.starionTexBox.ForeColor = System.Drawing.Color.GreenYellow;
             this.starionTexBox.Location = new System.Drawing.Point(255, 76);
             this.starionTexBox.Name = "starionTexBox";
+            this.starionTexBox.ReadOnly = true;
             this.starionTexBox.Size = new System.Drawing.Size(140, 31);
             this.starionTexBox.TabIndex = 10;
             this.starionTexBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
@@ -230,11 +235,11 @@
             // 
             this.coordinateTextBox.BackColor = System.Drawing.Color.DimGray;
             this.coordinateTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.coordinateTextBox.Enabled = false;
             this.coordinateTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.coordinateTextBox.ForeColor = System.Drawing.Color.GreenYellow;
             this.coordinateTextBox.Location = new System.Drawing.Point(102, 76);
             this.coordinateTextBox.Name = "coordinateTextBox";
+            this.coordinateTextBox.ReadOnly = true;
             this.coordinateTextBox.Size = new System.Drawing.Size(140, 31);
             this.coordinateTextBox.TabIndex = 8;
             this.coordinateTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
@@ -263,11 +268,11 @@
             // 
             this.timeOnScheduleTextBox.BackColor = System.Drawing.Color.DimGray;
             this.timeOnScheduleTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.timeOnScheduleTextBox.Enabled = false;
             this.timeOnScheduleTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.timeOnScheduleTextBox.ForeColor = System.Drawing.Color.GreenYellow;
             this.timeOnScheduleTextBox.Location = new System.Drawing.Point(413, 22);
             this.timeOnScheduleTextBox.Name = "timeOnScheduleTextBox";
+            this.timeOnScheduleTextBox.ReadOnly = true;
             this.timeOnScheduleTextBox.Size = new System.Drawing.Size(137, 31);
             this.timeOnScheduleTextBox.TabIndex = 5;
             this.timeOnScheduleTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
@@ -385,11 +390,11 @@
             // 
             this.accelerationTexBox.BackColor = System.Drawing.Color.DimGray;
             this.accelerationTexBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.accelerationTexBox.Enabled = false;
             this.accelerationTexBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.accelerationTexBox.ForeColor = System.Drawing.Color.GreenYellow;
             this.accelerationTexBox.Location = new System.Drawing.Point(60, 158);
             this.accelerationTexBox.Name = "accelerationTexBox";
+            this.accelerationTexBox.ReadOnly = true;
             this.accelerationTexBox.Size = new System.Drawing.Size(70, 31);
             this.accelerationTexBox.TabIndex = 27;
             // 
@@ -397,11 +402,11 @@
             // 
             this.frequencyTextBox.BackColor = System.Drawing.Color.DimGray;
             this.frequencyTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.frequencyTextBox.Enabled = false;
             this.frequencyTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.frequencyTextBox.ForeColor = System.Drawing.Color.GreenYellow;
             this.frequencyTextBox.Location = new System.Drawing.Point(74, 94);
             this.frequencyTextBox.Name = "frequencyTextBox";
+            this.frequencyTextBox.ReadOnly = true;
             this.frequencyTextBox.Size = new System.Drawing.Size(56, 31);
             this.frequencyTextBox.TabIndex = 26;
             // 
@@ -438,11 +443,11 @@
             // 
             this.brakingFactorTextBox.BackColor = System.Drawing.Color.DimGray;
             this.brakingFactorTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.brakingFactorTextBox.Enabled = false;
             this.brakingFactorTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.brakingFactorTextBox.ForeColor = System.Drawing.Color.GreenYellow;
             this.brakingFactorTextBox.Location = new System.Drawing.Point(21, 219);
             this.brakingFactorTextBox.Name = "brakingFactorTextBox";
+            this.brakingFactorTextBox.ReadOnly = true;
             this.brakingFactorTextBox.Size = new System.Drawing.Size(88, 31);
             this.brakingFactorTextBox.TabIndex = 22;
             // 
@@ -460,11 +465,11 @@
             // 
             this.nPathTextBox.BackColor = System.Drawing.Color.DimGray;
             this.nPathTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.nPathTextBox.Enabled = false;
             this.nPathTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.nPathTextBox.ForeColor = System.Drawing.Color.GreenYellow;
             this.nPathTextBox.Location = new System.Drawing.Point(0, 158);
             this.nPathTextBox.Name = "nPathTextBox";
+            this.nPathTextBox.ReadOnly = true;
             this.nPathTextBox.Size = new System.Drawing.Size(54, 31);
             this.nPathTextBox.TabIndex = 20;
             // 
@@ -492,11 +497,11 @@
             // 
             this.PressureURTexBox.BackColor = System.Drawing.Color.DimGray;
             this.PressureURTexBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.PressureURTexBox.Enabled = false;
             this.PressureURTexBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.PressureURTexBox.ForeColor = System.Drawing.Color.GreenYellow;
             this.PressureURTexBox.Location = new System.Drawing.Point(0, 94);
             this.PressureURTexBox.Name = "PressureURTexBox";
+            this.PressureURTexBox.ReadOnly = true;
             this.PressureURTexBox.Size = new System.Drawing.Size(68, 31);
             this.PressureURTexBox.TabIndex = 17;
             // 
@@ -524,11 +529,11 @@
             // 
             this.pressureTMTextBox.BackColor = System.Drawing.Color.DimGray;
             this.pressureTMTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.pressureTMTextBox.Enabled = false;
             this.pressureTMTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.pressureTMTextBox.ForeColor = System.Drawing.Color.GreenYellow;
             this.pressureTMTextBox.Location = new System.Drawing.Point(0, 26);
             this.pressureTMTextBox.Name = "pressureTMTextBox";
+            this.pressureTMTextBox.ReadOnly = true;
             this.pressureTMTextBox.Size = new System.Drawing.Size(134, 31);
             this.pressureTMTextBox.TabIndex = 14;
             // 
@@ -546,11 +551,11 @@
             // 
             this.actualSpeedTextBox.BackColor = System.Drawing.Color.DimGray;
             this.actualSpeedTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.actualSpeedTextBox.Enabled = false;
             this.actualSpeedTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 50.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.actualSpeedTextBox.ForeColor = System.Drawing.Color.GreenYellow;
             this.actualSpeedTextBox.Location = new System.Drawing.Point(252, 285);
             this.actualSpeedTextBox.Name = "actualSpeedTextBox";
+            this.actualSpeedTextBox.ReadOnly = true;
             this.actualSpeedTextBox.Size = new System.Drawing.Size(154, 76);
             this.actualSpeedTextBox.TabIndex = 15;
             this.actualSpeedTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
@@ -559,11 +564,11 @@
             // 
             this.allowableSpeedTextBox.BackColor = System.Drawing.Color.DimGray;
             this.allowableSpeedTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.allowableSpeedTextBox.Enabled = false;
             this.allowableSpeedTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 50.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.allowableSpeedTextBox.ForeColor = System.Drawing.Color.Red;
             this.allowableSpeedTextBox.Location = new System.Drawing.Point(252, 365);
             this.allowableSpeedTextBox.Name = "allowableSpeedTextBox";
+            this.allowableSpeedTextBox.ReadOnly = true;
             this.allowableSpeedTextBox.Size = new System.Drawing.Size(154, 76);
             this.allowableSpeedTextBox.TabIndex = 16;
             this.allowableSpeedTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
@@ -653,12 +658,12 @@
             // 
             this.distanceTexBox.BackColor = System.Drawing.Color.DimGray;
             this.distanceTexBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.distanceTexBox.Enabled = false;
-            this.distanceTexBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.distanceTexBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.distanceTexBox.ForeColor = System.Drawing.Color.GreenYellow;
-            this.distanceTexBox.Location = new System.Drawing.Point(66, 516);
+            this.distanceTexBox.Location = new System.Drawing.Point(22, 530);
             this.distanceTexBox.Name = "distanceTexBox";
-            this.distanceTexBox.Size = new System.Drawing.Size(105, 31);
+            this.distanceTexBox.ReadOnly = true;
+            this.distanceTexBox.Size = new System.Drawing.Size(105, 22);
             this.distanceTexBox.TabIndex = 16;
             this.distanceTexBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
@@ -666,7 +671,7 @@
             // 
             this.distanceLable.AutoSize = true;
             this.distanceLable.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.distanceLable.Location = new System.Drawing.Point(66, 503);
+            this.distanceLable.Location = new System.Drawing.Point(22, 517);
             this.distanceLable.Name = "distanceLable";
             this.distanceLable.Size = new System.Drawing.Size(105, 13);
             this.distanceLable.TabIndex = 15;
@@ -676,12 +681,12 @@
             // 
             this.infoTexBox.BackColor = System.Drawing.Color.DimGray;
             this.infoTexBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.infoTexBox.Enabled = false;
-            this.infoTexBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.infoTexBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.infoTexBox.ForeColor = System.Drawing.Color.GreenYellow;
-            this.infoTexBox.Location = new System.Drawing.Point(177, 516);
+            this.infoTexBox.Location = new System.Drawing.Point(133, 530);
             this.infoTexBox.Name = "infoTexBox";
-            this.infoTexBox.Size = new System.Drawing.Size(455, 31);
+            this.infoTexBox.ReadOnly = true;
+            this.infoTexBox.Size = new System.Drawing.Size(514, 22);
             this.infoTexBox.TabIndex = 18;
             this.infoTexBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
@@ -1102,6 +1107,8 @@
             // 
             // controlPanel
             // 
+            this.controlPanel.Controls.Add(this.panelControlCoordinate1);
+            this.controlPanel.Controls.Add(this.manualCoordinateControlCheckBox);
             this.controlPanel.Controls.Add(this.frequencyPanel);
             this.controlPanel.Controls.Add(this.cassetteCheckBox);
             this.controlPanel.Location = new System.Drawing.Point(689, 13);
@@ -1221,6 +1228,44 @@
             this.RBScheckBox.UseVisualStyleBackColor = true;
             this.RBScheckBox.CheckedChanged += new System.EventHandler(this.RBScheckBox_CheckedChanged);
             // 
+            // manualCoordinateControlCheckBox
+            // 
+            this.manualCoordinateControlCheckBox.AutoSize = true;
+            this.manualCoordinateControlCheckBox.ForeColor = System.Drawing.Color.Black;
+            this.manualCoordinateControlCheckBox.Location = new System.Drawing.Point(18, 37);
+            this.manualCoordinateControlCheckBox.Name = "manualCoordinateControlCheckBox";
+            this.manualCoordinateControlCheckBox.Size = new System.Drawing.Size(185, 17);
+            this.manualCoordinateControlCheckBox.TabIndex = 2;
+            this.manualCoordinateControlCheckBox.Text = "Ручное управление коорднатой";
+            this.manualCoordinateControlCheckBox.UseVisualStyleBackColor = true;
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(3, 19);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(128, 20);
+            this.textBox1.TabIndex = 3;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.ForeColor = System.Drawing.Color.Black;
+            this.label1.Location = new System.Drawing.Point(3, 3);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(67, 13);
+            this.label1.TabIndex = 4;
+            this.label1.Text = "Координата";
+            // 
+            // panelControlCoordinate1
+            // 
+            this.panelControlCoordinate1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panelControlCoordinate1.Controls.Add(this.label1);
+            this.panelControlCoordinate1.Controls.Add(this.textBox1);
+            this.panelControlCoordinate1.Location = new System.Drawing.Point(37, 57);
+            this.panelControlCoordinate1.Name = "panelControlCoordinate1";
+            this.panelControlCoordinate1.Size = new System.Drawing.Size(136, 47);
+            this.panelControlCoordinate1.TabIndex = 5;
+            // 
             // KLUB_U
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1265,6 +1310,8 @@
             this.controlPanel.PerformLayout();
             this.frequencyPanel.ResumeLayout(false);
             this.frequencyPanel.PerformLayout();
+            this.panelControlCoordinate1.ResumeLayout(false);
+            this.panelControlCoordinate1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1361,5 +1408,9 @@
         private System.Windows.Forms.Button buttonRBS;
         private System.Windows.Forms.CheckBox RBcheckBox;
         private System.Windows.Forms.CheckBox RBScheckBox;
+        private System.Windows.Forms.Panel panelControlCoordinate1;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.CheckBox manualCoordinateControlCheckBox;
     }
 }
