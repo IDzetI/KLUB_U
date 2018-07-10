@@ -109,6 +109,10 @@
             this.dashboard = new System.Windows.Forms.Panel();
             this.buttonRB = new System.Windows.Forms.Button();
             this.controlPanel = new System.Windows.Forms.Panel();
+            this.panelControlCoordinate1 = new System.Windows.Forms.Panel();
+            this.label1 = new System.Windows.Forms.Label();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.manualCoordinateControlCheckBox = new System.Windows.Forms.CheckBox();
             this.frequencyPanel = new System.Windows.Forms.Panel();
             this.frequency75RadioButton = new System.Windows.Forms.RadioButton();
             this.frequency50RadioButton = new System.Windows.Forms.RadioButton();
@@ -118,10 +122,9 @@
             this.buttonRBS = new System.Windows.Forms.Button();
             this.RBcheckBox = new System.Windows.Forms.CheckBox();
             this.RBScheckBox = new System.Windows.Forms.CheckBox();
-            this.manualCoordinateControlCheckBox = new System.Windows.Forms.CheckBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.panelControlCoordinate1 = new System.Windows.Forms.Panel();
+            this.RBPcheckBox = new System.Windows.Forms.CheckBox();
+            this.buttonRBP = new System.Windows.Forms.Button();
+            this.aloneCheckBox = new System.Windows.Forms.CheckBox();
             this.dashboardTop.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.mainPathIndicator)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.literalPathIndicalor)).BeginInit();
@@ -142,8 +145,8 @@
             this.dashboardBot.SuspendLayout();
             this.dashboard.SuspendLayout();
             this.controlPanel.SuspendLayout();
-            this.frequencyPanel.SuspendLayout();
             this.panelControlCoordinate1.SuspendLayout();
+            this.frequencyPanel.SuspendLayout();
             this.SuspendLayout();
             // 
             // dashboardTop
@@ -1107,14 +1110,55 @@
             // 
             // controlPanel
             // 
+            this.controlPanel.Controls.Add(this.aloneCheckBox);
+            this.controlPanel.Controls.Add(this.RBPcheckBox);
+            this.controlPanel.Controls.Add(this.buttonRBP);
             this.controlPanel.Controls.Add(this.panelControlCoordinate1);
             this.controlPanel.Controls.Add(this.manualCoordinateControlCheckBox);
             this.controlPanel.Controls.Add(this.frequencyPanel);
             this.controlPanel.Controls.Add(this.cassetteCheckBox);
             this.controlPanel.Location = new System.Drawing.Point(689, 13);
             this.controlPanel.Name = "controlPanel";
-            this.controlPanel.Size = new System.Drawing.Size(483, 796);
+            this.controlPanel.Size = new System.Drawing.Size(483, 805);
             this.controlPanel.TabIndex = 22;
+            // 
+            // panelControlCoordinate1
+            // 
+            this.panelControlCoordinate1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panelControlCoordinate1.Controls.Add(this.label1);
+            this.panelControlCoordinate1.Controls.Add(this.textBox1);
+            this.panelControlCoordinate1.Location = new System.Drawing.Point(37, 57);
+            this.panelControlCoordinate1.Name = "panelControlCoordinate1";
+            this.panelControlCoordinate1.Size = new System.Drawing.Size(136, 47);
+            this.panelControlCoordinate1.TabIndex = 5;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.ForeColor = System.Drawing.Color.Black;
+            this.label1.Location = new System.Drawing.Point(3, 3);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(67, 13);
+            this.label1.TabIndex = 4;
+            this.label1.Text = "Координата";
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(3, 19);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(128, 20);
+            this.textBox1.TabIndex = 3;
+            // 
+            // manualCoordinateControlCheckBox
+            // 
+            this.manualCoordinateControlCheckBox.AutoSize = true;
+            this.manualCoordinateControlCheckBox.ForeColor = System.Drawing.Color.Black;
+            this.manualCoordinateControlCheckBox.Location = new System.Drawing.Point(18, 37);
+            this.manualCoordinateControlCheckBox.Name = "manualCoordinateControlCheckBox";
+            this.manualCoordinateControlCheckBox.Size = new System.Drawing.Size(185, 17);
+            this.manualCoordinateControlCheckBox.TabIndex = 2;
+            this.manualCoordinateControlCheckBox.Text = "Ручное управление коорднатой";
+            this.manualCoordinateControlCheckBox.UseVisualStyleBackColor = true;
             // 
             // frequencyPanel
             // 
@@ -1228,43 +1272,43 @@
             this.RBScheckBox.UseVisualStyleBackColor = true;
             this.RBScheckBox.CheckedChanged += new System.EventHandler(this.RBScheckBox_CheckedChanged);
             // 
-            // manualCoordinateControlCheckBox
+            // RBPcheckBox
             // 
-            this.manualCoordinateControlCheckBox.AutoSize = true;
-            this.manualCoordinateControlCheckBox.ForeColor = System.Drawing.Color.Black;
-            this.manualCoordinateControlCheckBox.Location = new System.Drawing.Point(18, 37);
-            this.manualCoordinateControlCheckBox.Name = "manualCoordinateControlCheckBox";
-            this.manualCoordinateControlCheckBox.Size = new System.Drawing.Size(185, 17);
-            this.manualCoordinateControlCheckBox.TabIndex = 2;
-            this.manualCoordinateControlCheckBox.Text = "Ручное управление коорднатой";
-            this.manualCoordinateControlCheckBox.UseVisualStyleBackColor = true;
+            this.RBPcheckBox.AutoSize = true;
+            this.RBPcheckBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.RBPcheckBox.ForeColor = System.Drawing.Color.Black;
+            this.RBPcheckBox.Location = new System.Drawing.Point(182, 770);
+            this.RBPcheckBox.Name = "RBPcheckBox";
+            this.RBPcheckBox.Size = new System.Drawing.Size(116, 20);
+            this.RBPcheckBox.TabIndex = 27;
+            this.RBPcheckBox.Text = "Зажать РБП";
+            this.RBPcheckBox.UseVisualStyleBackColor = true;
+            this.RBPcheckBox.CheckedChanged += new System.EventHandler(this.RBPcheckBox_CheckedChanged);
             // 
-            // textBox1
+            // buttonRBP
             // 
-            this.textBox1.Location = new System.Drawing.Point(3, 19);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(128, 20);
-            this.textBox1.TabIndex = 3;
+            this.buttonRBP.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.buttonRBP.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.buttonRBP.ForeColor = System.Drawing.Color.Transparent;
+            this.buttonRBP.Location = new System.Drawing.Point(6, 757);
+            this.buttonRBP.Name = "buttonRBP";
+            this.buttonRBP.Size = new System.Drawing.Size(170, 39);
+            this.buttonRBP.TabIndex = 26;
+            this.buttonRBP.Text = "РБП";
+            this.buttonRBP.UseVisualStyleBackColor = false;
+            this.buttonRBP.Click += new System.EventHandler(this.buttonRBP_Click);
             // 
-            // label1
+            // aloneCheckBox
             // 
-            this.label1.AutoSize = true;
-            this.label1.ForeColor = System.Drawing.Color.Black;
-            this.label1.Location = new System.Drawing.Point(3, 3);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(67, 13);
-            this.label1.TabIndex = 4;
-            this.label1.Text = "Координата";
-            // 
-            // panelControlCoordinate1
-            // 
-            this.panelControlCoordinate1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panelControlCoordinate1.Controls.Add(this.label1);
-            this.panelControlCoordinate1.Controls.Add(this.textBox1);
-            this.panelControlCoordinate1.Location = new System.Drawing.Point(37, 57);
-            this.panelControlCoordinate1.Name = "panelControlCoordinate1";
-            this.panelControlCoordinate1.Size = new System.Drawing.Size(136, 47);
-            this.panelControlCoordinate1.TabIndex = 5;
+            this.aloneCheckBox.AutoSize = true;
+            this.aloneCheckBox.ForeColor = System.Drawing.Color.Black;
+            this.aloneCheckBox.Location = new System.Drawing.Point(18, 734);
+            this.aloneCheckBox.Name = "aloneCheckBox";
+            this.aloneCheckBox.Size = new System.Drawing.Size(125, 17);
+            this.aloneCheckBox.TabIndex = 28;
+            this.aloneCheckBox.Text = "Работа в одно лицо";
+            this.aloneCheckBox.UseVisualStyleBackColor = true;
+            this.aloneCheckBox.CheckedChanged += new System.EventHandler(this.aloneCheckBox_CheckedChanged);
             // 
             // KLUB_U
             // 
@@ -1308,10 +1352,10 @@
             this.dashboard.PerformLayout();
             this.controlPanel.ResumeLayout(false);
             this.controlPanel.PerformLayout();
-            this.frequencyPanel.ResumeLayout(false);
-            this.frequencyPanel.PerformLayout();
             this.panelControlCoordinate1.ResumeLayout(false);
             this.panelControlCoordinate1.PerformLayout();
+            this.frequencyPanel.ResumeLayout(false);
+            this.frequencyPanel.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1412,5 +1456,8 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.CheckBox manualCoordinateControlCheckBox;
+        private System.Windows.Forms.CheckBox RBPcheckBox;
+        private System.Windows.Forms.Button buttonRBP;
+        private System.Windows.Forms.CheckBox aloneCheckBox;
     }
 }

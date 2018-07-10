@@ -25,21 +25,11 @@ namespace Симулятор_КЛУБ_У
         protected String Info { get; set; }
         protected String NameNextStation { get; set; }
         protected int[] TrainParametrs { get; set; }
+        protected bool[] Trafficlights { get; set; }
 
         // true = path is main; false = path is literal 
         protected bool Path { get; set; }
-
-        // 8 - blink
-        // 7 - green4
-        // 6 - green3
-        // 5 - green2
-        // 4 - green1
-        // 3 - yellow
-        // 2 - yellow red
-        // 1 - red
-        // 0 - white
-        protected bool[] Trafficlights { get; set; }
-
+        
         // true if train dosn't move
         protected bool IsStop { get; set; }
 
@@ -85,7 +75,19 @@ namespace Симулятор_КЛУБ_У
             Info = "";
             klub_u.SetFrequency(Frequency);
             TrainParametrs = new Int32[]{ 0, 0, 0, 0, 0};
-        }
+            
+            // 8 - white blink
+            // 7 - green4
+            // 6 - green3
+            // 5 - green2
+            // 4 - green1
+            // 3 - yellow
+            // 2 - yellow red
+            // 1 - red
+            // 0 - white     
+            Trafficlights = new bool[] {    false, false, false, false, false, false, false, false,
+                                            false };
+    }
 
 
 
@@ -142,7 +144,8 @@ namespace Симулятор_КЛУБ_У
         protected byte InputFrequency { get; set; }
         protected bool InputHasCassatte { get; set; }
         protected bool ManualCoordinateControl { get; set; }
-
+        protected bool AloneMode { get; set; }
+        protected bool RBP { get; set; }
 
         //functions
         abstract public void SelectFrequency25();
@@ -154,6 +157,13 @@ namespace Симулятор_КЛУБ_У
 
         abstract public void OnManualCoordinateControlMode();
         abstract public void OffManualCoordinateControlMode();
+
+        abstract public void OnAloneMode();
+        abstract public void OffAloneMode();
+
+        abstract public void PressButtonRBP();
+        abstract public void HoldDownRBP();
+        abstract public void ReleaseRBP();
     }
 
 }

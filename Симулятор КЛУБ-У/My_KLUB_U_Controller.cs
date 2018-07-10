@@ -28,7 +28,7 @@ namespace Симулятор_КЛУБ_У
 
         private byte illumination;
         private bool illuminationStatus;
-        
+
         public My_KLUB_U_Controller(KLUB_U klub_u) : base(klub_u)
         {
             klub_u.OnTrainModeIndicator();
@@ -39,153 +39,68 @@ namespace Симулятор_КЛУБ_У
             inputCommandMode = false;
         }
 
-        public override void HoldDownRB(){ RB = true; }
-        public override void HoldDownRBS() { RBS = true; }
-
-        public override void InstallCassette()
+        private void UpdateTrafficlights()
         {
-            HasCassette = true;
-            Klub_u.OnRegisterIndicatorIndicator();
+            // 8 - white blink
+            // 7 - green4
+            // 6 - green3
+            // 5 - green2
+            // 4 - green1
+            // 3 - yellow
+            // 2 - yellow red
+            // 1 - red
+            // 0 - white     
+
+            if (Trafficlights[8])
+            {
+                Trafficlights[0] = false;
+                Klub_u.OffTrafficLight1BlinkIndicator();
+            }
+            //TODO 
+            if(Trafficlights[7])
         }
 
-        public override void PressButton0()
+        private void PressNumberButtonN(byte n)
         {
             if (inputInfoMode)
             {
-                TrainParametrs[inputInfoParametr] = TrainParametrs[inputInfoParametr] * 10 + 0;
+                TrainParametrs[inputInfoParametr] = TrainParametrs[inputInfoParametr] * 10 + n;
                 Klub_u.SetInfo(InputInfoParametrs[inputInfoParametr] + " - " + TrainParametrs[inputInfoParametr].ToString() + " ");
             }
+            else if (inputPathMode)
+            {
+                PathNumber = (byte)(PathNumber * 10 + n);
+                Klub_u.SetInfo("Номер пути = " + PathNumber.ToString() + " ");
+            }
+            else if (inputPathCorrectnessMode)
+            {
+                CorrectPath = n == 1;
+                Klub_u.SetInfo("Признак правильности пути = " + (CorrectPath ? "1" : "0") + " ");
+            }
             else
-                inputNumberTool.AddSimvol(0);
+                inputNumberTool.AddSimvol(n);
         }
 
-        public override void PressButton1()
+        // a = +1 if press button plus and a = -1 if press minus
+        private void PlusOrMinusParametr(int a)
         {
             if (inputInfoMode)
             {
-                TrainParametrs[inputInfoParametr] = TrainParametrs[inputInfoParametr] * 10 + 1;
+                TrainParametrs[inputInfoParametr] += a;
                 Klub_u.SetInfo(InputInfoParametrs[inputInfoParametr] + " - " + TrainParametrs[inputInfoParametr].ToString() + " ");
             }
-            else
-                inputNumberTool.AddSimvol(1);
-        }
-
-        public override void PressButton2()
-        {
-            if (inputInfoMode)
+            else if (inputPathMode)
             {
-                TrainParametrs[inputInfoParametr] = TrainParametrs[inputInfoParametr] * 10 + 2;
-                Klub_u.SetInfo(InputInfoParametrs[inputInfoParametr] + " - " + TrainParametrs[inputInfoParametr].ToString() + " ");
+                PathNumber += (byte)a;
+                Klub_u.SetInfo("Номер пути = " + PathNumber.ToString() + " ");
             }
-            else
-                inputNumberTool.AddSimvol(2);
-        }
-
-        public override void PressButton3()
-        {
-            if (inputInfoMode)
+            else if (inputPathCorrectnessMode)
             {
-                TrainParametrs[inputInfoParametr] = TrainParametrs[inputInfoParametr] * 10 + 3;
-                Klub_u.SetInfo(InputInfoParametrs[inputInfoParametr] + " - " + TrainParametrs[inputInfoParametr].ToString() + " ");
+                CorrectPath = !CorrectPath;
+                Klub_u.SetInfo("Признак правильности пути = " + (CorrectPath ? "1" : "0") + " ");
             }
-            else
-                inputNumberTool.AddSimvol(3);
         }
 
-        public override void PressButton4()
-        {
-            if (inputInfoMode)
-            {
-                TrainParametrs[inputInfoParametr] = TrainParametrs[inputInfoParametr] * 10 + 4;
-                Klub_u.SetInfo(InputInfoParametrs[inputInfoParametr] + " - " + TrainParametrs[inputInfoParametr].ToString() + " ");
-            }
-            else
-                inputNumberTool.AddSimvol(4);
-        }
-
-        public override void PressButton5()
-        {
-            if (inputInfoMode)
-            {
-                TrainParametrs[inputInfoParametr] = TrainParametrs[inputInfoParametr] * 10 + 5;
-                Klub_u.SetInfo(InputInfoParametrs[inputInfoParametr] + " - " + TrainParametrs[inputInfoParametr].ToString() + " ");
-            }
-            else
-                inputNumberTool.AddSimvol(5);
-        }
-
-        public override void PressButton6()
-        {
-            if (inputInfoMode)
-            {
-                TrainParametrs[inputInfoParametr] = TrainParametrs[inputInfoParametr] * 10 + 6;
-                Klub_u.SetInfo(InputInfoParametrs[inputInfoParametr] + " - " + TrainParametrs[inputInfoParametr].ToString() + " ");
-            }
-            else
-                inputNumberTool.AddSimvol(6);
-        }
-
-        public override void PressButton7()
-        {
-            if (inputInfoMode)
-            {
-                TrainParametrs[inputInfoParametr] = TrainParametrs[inputInfoParametr] * 10 + 7;
-                Klub_u.SetInfo(InputInfoParametrs[inputInfoParametr] + " - " + TrainParametrs[inputInfoParametr].ToString() + " ");
-            }
-            else
-                inputNumberTool.AddSimvol(7);
-        }
-
-        public override void PressButton8()
-        {
-            if (inputInfoMode)
-            {
-                TrainParametrs[inputInfoParametr] = TrainParametrs[inputInfoParametr] * 10 + 8;
-                Klub_u.SetInfo(InputInfoParametrs[inputInfoParametr] + " - " + TrainParametrs[inputInfoParametr].ToString() + " ");
-            }
-            else
-                inputNumberTool.AddSimvol(8);
-        }
-
-        public override void PressButton9()
-        {
-            if (inputInfoMode)
-            {
-                TrainParametrs[inputInfoParametr] = TrainParametrs[inputInfoParametr] * 10 + 9;
-                Klub_u.SetInfo(InputInfoParametrs[inputInfoParametr] + " - " + TrainParametrs[inputInfoParametr].ToString() + " ");
-            }
-            else
-                inputNumberTool.AddSimvol(9);
-        }
-
-        public override void PressButtonDOWN()
-        {
-            illuminationStatus = !illuminationStatus;
-            ShowIlluminationStatus();
-        }
-
-        private void ShowIlluminationStatus()
-        {
-            if (illuminationStatus)
-                MessageBox.Show("Подсветка включена яркость = "+illumination.ToString());
-            else
-                MessageBox.Show("Подсветка выключена");
-        }
-
-        public override void PressButtonF()
-        {
-            Frequency %= 75;
-            Frequency += 25;
-            Klub_u.SetFrequency(Frequency);
-        }
-
-        public override void PressButtonI()
-        {
-            illumination %= 7;
-            illumination++;
-            ShowIlluminationStatus();
-        }
-            
         public override void PressButtonK()
         {
             inputInfoMode = false;
@@ -197,11 +112,17 @@ namespace Симулятор_КЛУБ_У
             inputNumberTool.Reset();
         }
 
-        private void ShowPlaceHolder() { MessageBox.Show("действуют в соответствии с алгоритмами работы системы САУТ-ЦМ/485"); }
-
-        public override void PressButtonK20()
+        private void NextInputInfo()
         {
-            ShowPlaceHolder();
+            inputInfoParametr++;
+            if (inputInfoParametr >= 5)
+            {
+                inputInfoMode = false;
+                Klub_u.SetInfo(Info);
+                return;
+            }
+            else
+                Klub_u.SetInfo(InputInfoParametrs[inputInfoParametr] + " - " + TrainParametrs[inputInfoParametr] + " ");
         }
 
         public override void PressButtonL()
@@ -212,77 +133,48 @@ namespace Симулятор_КЛУБ_У
 
             if (inputInfoMode)
             {
-                inputInfoParametr++;
-                if (inputInfoParametr >= 5)
-                {
-                    inputInfoMode = false;
-                    Klub_u.SetInfo(Info);
-                    return;
-                }
-                else
-                    Klub_u.SetInfo(InputInfoParametrs[inputInfoParametr] + " - " + TrainParametrs[inputInfoParametr] + " ");
+                NextInputInfo();
             }
             else if (ActualSpeed == 0 && HasCassette)
             {
                 inputInfoMode = true;
                 inputInfoParametr = 0;
-                Klub_u.SetInfo(InputInfoParametrs[inputInfoParametr]+ " - " + TrainParametrs[inputInfoParametr]+ " ");
+                Klub_u.SetInfo(InputInfoParametrs[inputInfoParametr] + " - " + TrainParametrs[inputInfoParametr] + " ");
             }
         }
-
-        public override void PressButtonMinus()
-        {
-            PlusOrMinusParametr(-1);
-        }
-
-        private void PlusOrMinusParametr(int a)
-        {
-            if (inputInfoMode)
-            {
-                TrainParametrs[inputInfoParametr] += a;
-                Klub_u.SetInfo(InputInfoParametrs[inputInfoParametr] + " - " + TrainParametrs[inputInfoParametr].ToString() + " ");
-            }
-            if (inputPathMode)
-            {
-                PathNumber += (byte)a;
-                Klub_u.SetInfo("Номер пути = " + PathNumber.ToString() + " ");
-            }
-            if (inputPathCorrectnessMode)
-            {
-                CorrectPath = !CorrectPath;
-                Klub_u.SetInfo("Признак правильности пути = " + (CorrectPath ? "1" : "0") + " ");
-            }
-        }
-
+        
         public override void PressButtonOK()
         {
             if (inputInfoMode) TrainParametrs[inputInfoParametr] = 0;
-            if (inputCommandMode) inputCommandMode = false;
+            else if (inputCommandMode) inputCommandMode = false;
+            else if (inputPathMode) PathNumber = 0;
+            else if (inputPathCorrectnessMode) inputPathCorrectnessMode = false;
         }
 
-        public override void PressButtonOS()
+        private void NextInputPath()
         {
-            ShowPlaceHolder();
+            inputPathMode = false;
+            inputPathCorrectnessMode = true;
+            Klub_u.SetInfo("Признак правильности пути = " + (CorrectPath ? "1" : "0") + " ");
         }
 
-        public override void PressButtonOTPR()
+        private void NextInputPathCorrectness()
         {
-            ShowPlaceHolder();
+            inputPathCorrectnessMode = false;
+            Klub_u.SetInfo(Info);
         }
-
+        
         public override void PressButtonP()
         {
             if (inputPathMode)
             {
-                inputPathMode = false;
-                inputPathCorrectnessMode = true;
-                Klub_u.SetInfo("Признак правильности пути = " + (CorrectPath ? "1" : "0") + " ");
+                NextInputPath();
             }
             else
             {
                 if (inputPathCorrectnessMode)
                 {
-                    inputPathCorrectnessMode = false;
+                    NextInputPathCorrectness();
                 }
                 else
                 {
@@ -292,33 +184,31 @@ namespace Симулятор_КЛУБ_У
                     Klub_u.SetInfo("Номер пути = " + PathNumber.ToString() + " ");
                 }
             }
-            
-        }
 
-        public override void PressButtonPlus()
-        {
-            PlusOrMinusParametr(+1);
-        }
-
-        public override void PressButtonPODTYAG()
-        {
-            ShowPlaceHolder();
         }
 
         public override void PressButtonRB()
         {
+            //TODO RB
             throw new NotImplementedException();
         }
 
         public override void PressButtonRBS()
         {
+            //TODO RBS
+            throw new NotImplementedException();
+        }
+
+        public override void PressButtonRBP()
+        {
+            //TODO RBP
             throw new NotImplementedException();
         }
 
         public override void PressButtonRMP()
         {
             if (ActualSpeed == 0 && HasCassette)
-            {                
+            {
                 MovingMode++;
                 MovingMode %= 3;
                 if (MovingMode == 0 && Trafficlights[2] || Trafficlights[3] || (Trafficlights[0] && Trafficlights[8]))
@@ -364,52 +254,99 @@ namespace Симулятор_КЛУБ_У
 
         public override void PressButtonUP()
         {
-            throw new NotImplementedException();
+            if (inputCommandMode)
+            {
+                //TODO execution command
+            }
+            else if (inputInfoMode) NextInputInfo();
+            else if (inputPathMode) NextInputPath();
+            else if (inputPathCorrectnessMode) NextInputPathCorrectness();
         }
 
         public override void PressButtonVK()
         {
-            throw new NotImplementedException();
+            if((!AloneMode && RB && RBP) || (AloneMode && RB))
+            {
+                Trafficlights[1] = false;
+                Trafficlights[0] = true;
+                AllowableSpeed = 20;
+            }
+        }
+        
+        public override void PressButtonDOWN()
+        {
+            illuminationStatus = !illuminationStatus;
+            ShowIlluminationStatus();
         }
 
-        public override void ReleaseRB()
+        private void ShowIlluminationStatus()
         {
-            throw new NotImplementedException();
+            if (illuminationStatus)
+                MessageBox.Show("Подсветка включена яркость = " + illumination.ToString());
+            else
+                MessageBox.Show("Подсветка выключена");
         }
 
-        public override void ReleaseRBS()
+        public override void PressButtonF()
         {
-            throw new NotImplementedException();
+            Frequency %= 75;
+            Frequency += 25;
+            Klub_u.SetFrequency(Frequency);
         }
 
-        public override void SelectFrequency25()
+        public override void PressButtonI()
         {
-            throw new NotImplementedException();
+            illumination %= 7;
+            illumination++;
+            ShowIlluminationStatus();
         }
-
-        public override void SelectFrequency50()
+        
+        public override void InstallCassette()
         {
-            throw new NotImplementedException();
-        }
-
-        public override void SelectFrequency75()
-        {
-            throw new NotImplementedException();
+            HasCassette = true;
+            Klub_u.OnRegisterIndicatorIndicator();
         }
 
         public override void UninstallCassette()
         {
-            throw new NotImplementedException();
+            HasCassette = false;
+            Klub_u.OffRegisterIndicatorIndicator();
         }
 
-        public override void OnManualCoordinateControlMode()
-        {
-            throw new NotImplementedException();
-        }
+        public override void HoldDownRB() { RB = true; }
+        public override void ReleaseRB() { RB = false; }
+        public override void HoldDownRBS() { RBS = true; }
+        public override void ReleaseRBS() { RBS = false; }
+        public override void HoldDownRBP() { RBP = true; }
+        public override void ReleaseRBP() { RBP = false; }
+        public override void OnAloneMode() { AloneMode = true; }
+        public override void OffAloneMode() { AloneMode = false; }
+        public override void OnManualCoordinateControlMode() { ManualCoordinateControl = true; }
+        public override void OffManualCoordinateControlMode() { ManualCoordinateControl = false; }
 
-        public override void OffManualCoordinateControlMode()
-        {
-            throw new NotImplementedException();
-        }
+
+        private void ShowPlaceHolder() { MessageBox.Show("действуют в соответствии с алгоритмами работы системы САУТ-ЦМ/485"); }
+        public override void PressButtonK20() { ShowPlaceHolder(); }
+        public override void PressButtonPODTYAG() { ShowPlaceHolder(); }
+        public override void PressButtonOS() { ShowPlaceHolder(); }
+        public override void PressButtonOTPR() { ShowPlaceHolder(); }
+        
+        public override void PressButtonPlus() { PlusOrMinusParametr(+1); }
+        public override void PressButtonMinus() { PlusOrMinusParametr(-1); }
+
+        public override void PressButton0() { PressNumberButtonN(0); }
+        public override void PressButton1() { PressNumberButtonN(1); }
+        public override void PressButton2() { PressNumberButtonN(2); }
+        public override void PressButton3() { PressNumberButtonN(3); }
+        public override void PressButton4() { PressNumberButtonN(4); }
+        public override void PressButton5() { PressNumberButtonN(5); }
+        public override void PressButton6() { PressNumberButtonN(6); }
+        public override void PressButton7() { PressNumberButtonN(7); }
+        public override void PressButton8() { PressNumberButtonN(8); }
+        public override void PressButton9() { PressNumberButtonN(9); }
+        
+        public override void SelectFrequency25() { InputFrequency = 25; }
+        public override void SelectFrequency50() { InputFrequency = 50; }
+        public override void SelectFrequency75() { InputFrequency = 75; }
     }
 }

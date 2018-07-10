@@ -60,30 +60,31 @@ namespace Симулятор_КЛУБ_У
         public void OffAlarmIndicator() { alarmIndicator.Image = Properties.Resources.alarmGray; }
 
         //управление индикаторами светофора
+        // 0
+        public void OnTrafficLight0Indicator() { trafficLight1Indicator.BackColor = Color.White; }
+        public void OffTrafficLight0Indicator() { trafficLight1Indicator.BackColor = Color.Black; }
+        public void OffTrafficLight0BlinkIndicator() {  }
         // 1
-        public void OnTrafficLight1Indicator() { trafficLight1Indicator.BackColor = Color.White; }
-        public void OffTrafficLight1Indicator() { trafficLight1Indicator.BackColor = Color.Black; }
+        public void OnTrafficLight1Indicator() { trafficLight2Indicator.BackColor = Color.Red; }
+        public void OffTrafficLight1Indicator() { trafficLight2Indicator.BackColor = Color.FromArgb(255, 64, 0, 0); }
         // 2
-        public void OnTrafficLight2Indicator() { trafficLight2Indicator.BackColor = Color.Red; }
-        public void OffTrafficLight2Indicator() { trafficLight2Indicator.BackColor = Color.FromArgb(255, 64, 0, 0); }
+        public void OnTrafficLight2Indicator() { trafficLight3Indicator.Image = Properties.Resources.yellowRedIndicatorON; }
+        public void OffTrafficLight2Indicator() { trafficLight3Indicator.Image = Properties.Resources.yellowRedIndicatorOFF; }
         // 3
-        public void OnTrafficLight3Indicator() { trafficLight3Indicator.Image = Properties.Resources.yellowRedIndicatorON; }
-        public void OffTrafficLight3Indicator() { trafficLight3Indicator.Image = Properties.Resources.yellowRedIndicatorOFF; }
+        public void OnTrafficLight3Indicator() { trafficLight4Indicator.BackColor = Color.Yellow; }
+        public void OffTrafficLight3Indicator() { trafficLight4Indicator.BackColor = Color.FromArgb(255, 64, 64, 0); }
         // 4
-        public void OnTrafficLight4Indicator() { trafficLight4Indicator.BackColor = Color.Yellow; }
-        public void OffTrafficLight4Indicator() { trafficLight4Indicator.BackColor = Color.FromArgb(255, 64, 64, 0); }
+        public void OnTrafficLight4Indicator() { trafficLight5Indicator.BackColor = Color.Green; }
+        public void OffTrafficLight4Indicator() { trafficLight5Indicator.BackColor = Color.FromArgb(255, 0, 64, 0); }
         // 5
-        public void OnTrafficLight5Indicator() { trafficLight5Indicator.BackColor = Color.Green; }
-        public void OffTrafficLight5Indicator() { trafficLight5Indicator.BackColor = Color.FromArgb(255, 0, 64, 0); }
+        public void OnTrafficLight5Indicator() { trafficLight6Indicator.BackColor = Color.Green; }
+        public void OffTrafficLight5Indicator() { trafficLight6Indicator.BackColor = Color.FromArgb(255, 0, 64, 0); }
         // 6
-        public void OnTrafficLight6Indicator() { trafficLight6Indicator.BackColor = Color.Green; }
-        public void OffTrafficLight6Indicator() { trafficLight6Indicator.BackColor = Color.FromArgb(255, 0, 64, 0); }
+        public void OnTrafficLight6Indicator() { trafficLight7Indicator.BackColor = Color.Green; }
+        public void OffTrafficLight6Indicator() { trafficLight7Indicator.BackColor = Color.FromArgb(255, 0, 64, 0); }
         // 7
-        public void OnTrafficLight7Indicator() { trafficLight7Indicator.BackColor = Color.Green; }
-        public void OffTrafficLight7Indicator() { trafficLight7Indicator.BackColor = Color.FromArgb(255, 0, 64, 0); }
-        // 8
-        public void OnTrafficLight8Indicator() { trafficLight8Indicator.BackColor = Color.Green; }
-        public void OffTrafficLight8Indicator() { trafficLight8Indicator.BackColor = Color.FromArgb(255, 0, 64, 0); }
+        public void OnTrafficLight7Indicator() { trafficLight8Indicator.BackColor = Color.Green; }
+        public void OffTrafficLight7Indicator() { trafficLight8Indicator.BackColor = Color.FromArgb(255, 0, 64, 0); }
 
         //управлением индикатором запрета отпуска тормозов (при работе с системой САУТ)
         public void OnBanBrakeReleaseIndicator() { banBrakeReleaseIndicator.BackColor = Color.Red; }
@@ -211,6 +212,27 @@ namespace Симулятор_КЛУБ_У
             if (frequency25RadioButton.Checked) Controller.SelectFrequency25();
             else if (frequency50RadioButton.Checked) Controller.SelectFrequency50();
             else if (frequency75RadioButton.Checked) Controller.SelectFrequency75();
+        }
+
+        private void aloneCheckBox_CheckedChanged(object sender, EventArgs e)
+        {
+            buttonRBP.Enabled = !aloneCheckBox.Checked;
+            RBPcheckBox.Enabled = !aloneCheckBox.Checked;
+
+            if (aloneCheckBox.Checked)
+                Controller.OnAloneMode();
+            else
+                Controller.OffAloneMode();
+        }
+
+        private void buttonRBP_Click(object sender, EventArgs e) { Controller.PressButtonRBP(); }
+
+        private void RBPcheckBox_CheckedChanged(object sender, EventArgs e)
+        {
+            if (RBPcheckBox.Checked)
+                Controller.HoldDownRBP();
+            else
+                Controller.ReleaseRBP();
         }
     }     
 } 
