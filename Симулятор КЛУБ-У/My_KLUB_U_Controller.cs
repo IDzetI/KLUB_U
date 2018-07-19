@@ -39,27 +39,6 @@ namespace Симулятор_КЛУБ_У
             inputCommandMode = false;
         }
 
-        private void UpdateTrafficlights()
-        {
-            // 8 - white blink
-            // 7 - green4
-            // 6 - green3
-            // 5 - green2
-            // 4 - green1
-            // 3 - yellow
-            // 2 - yellow red
-            // 1 - red
-            // 0 - white     
-
-            if (Trafficlights[8])
-            {
-                Trafficlights[0] = false;
-                Klub_u.OffTrafficLight1BlinkIndicator();
-            }
-            //TODO 
-            if(Trafficlights[7])
-        }
-
         private void PressNumberButtonN(byte n)
         {
             if (inputInfoMode)
@@ -226,10 +205,11 @@ namespace Симулятор_КЛУБ_У
                         AllowableSpeed = 60;
                         //TODO Проверка бдительности в начале движения не производится
                         Klub_u.OffTrainModeIndicator();
-                        Klub_u.OnMainPathIndicator();
+                        Klub_u.OffDoubleTractionModeIndicator();
+                        Klub_u.OnManeuringModeIndicator();
                         break;
                     case 1: //Train mode
-                        Klub_u.OffMainPathIndicator();
+                        Klub_u.OffManeuringModeIndicator();
                         Klub_u.OffDoubleTractionModeIndicator();
                         Klub_u.OnTrainModeIndicator();
                         break;
@@ -243,7 +223,7 @@ namespace Симулятор_КЛУБ_У
                         //     контроль скатывания и контроль исправности ДПС;
                         //TODO формирует на БИЛ информацию о впередилежащих местах ограничения скорости, 
                         //     не производя при этом фактической отработки Vцел и Vдоп по данным ограничениям.
-                        Klub_u.OffMainPathIndicator();
+                        Klub_u.OffManeuringModeIndicator();
                         Klub_u.OffTrainModeIndicator();
                         Klub_u.OnDoubleTractionModeIndicator();
                         break;
@@ -300,7 +280,54 @@ namespace Симулятор_КЛУБ_У
             illumination++;
             ShowIlluminationStatus();
         }
-        
+
+        public override void ManualChangeCoordinate(int coordinzte)
+        {
+            if (ManualCoordinateControl) Coordinate = coordinzte;
+            Klub_u.SetCoordinate(Coordinate);
+        }
+
+        private void UpdateTrafficlights()
+        {
+            for (int i = Trafficlights.Length - 1; i >= 0; i--)
+            {
+                if (i > 7 && Trafficlights[i]) Trafficlights[i - 8] = false;
+                OnOrOffTrafficLight(i, Trafficlights[i]);
+            }
+        }
+
+        private void OnOrOffTrafficLight(int number, bool status)
+        {
+            if (status)
+                switch (number)
+                {
+                    case 0: Klub_u.OnTrafficLight0Indicator(); break;
+                    case 1: Klub_u.OnTrafficLight1Indicator(); break;
+                    case 2: Klub_u.OnTrafficLight2Indicator(); break;
+                    case 3: Klub_u.OnTrafficLight3Indicator(); break;
+                    case 4: Klub_u.OnTrafficLight4Indicator(); break;
+                    case 5: Klub_u.OnTrafficLight5Indicator(); break;
+                    case 6: Klub_u.OnTrafficLight6Indicator(); break;
+                    case 7: Klub_u.OnTrafficLight7Indicator(); break;
+                    case 8: Klub_u.OnTrafficLight0BlinkIndicator(); break;
+                    default: MessageBox.Show("ERROR: On TrafficLight Indicator " + number.ToString()); break;
+                }
+            else
+                switch (number)
+                {
+                    case 0: Klub_u.OffTrafficLight0Indicator(); break;
+                    case 1: Klub_u.OffTrafficLight1Indicator(); break;
+                    case 2: Klub_u.OffTrafficLight2Indicator(); break;
+                    case 3: Klub_u.OffTrafficLight3Indicator(); break;
+                    case 4: Klub_u.OffTrafficLight4Indicator(); break;
+                    case 5: Klub_u.OffTrafficLight5Indicator(); break;
+                    case 6: Klub_u.OffTrafficLight6Indicator(); break;
+                    case 7: Klub_u.OffTrafficLight7Indicator(); break;
+                    case 8: Klub_u.OffTrafficLight0BlinkIndicator(); break;
+                    default: MessageBox.Show("ERROR: Off TrafficLight Indicator " + number.ToString()); break;
+                }
+        }
+
         public override void InstallCassette()
         {
             HasCassette = true;

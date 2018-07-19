@@ -63,6 +63,8 @@ namespace Симулятор_КЛУБ_У
         // 0
         public void OnTrafficLight0Indicator() { trafficLight1Indicator.BackColor = Color.White; }
         public void OffTrafficLight0Indicator() { trafficLight1Indicator.BackColor = Color.Black; }
+        //TODO
+        public void OnTrafficLight0BlinkIndicator() { }
         public void OffTrafficLight0BlinkIndicator() {  }
         // 1
         public void OnTrafficLight1Indicator() { trafficLight2Indicator.BackColor = Color.Red; }
@@ -234,5 +236,17 @@ namespace Симулятор_КЛУБ_У
             else
                 Controller.ReleaseRBP();
         }
+        
+        private void manualCoordinateControlCheckBox_CheckedChanged(object sender, EventArgs e)
+        {
+            panelControlCoordinate.Enabled = manualCoordinateControlCheckBox.Checked;
+
+            if (manualCoordinateControlCheckBox.Checked)
+                Controller.OnManualCoordinateControlMode();
+            else
+                Controller.OffManualCoordinateControlMode();
+        }
+
+        private void buttonManualControlCoordinate_Click(object sender, EventArgs e) { Controller.ManualChangeCoordinate(Convert.ToInt32(сontrolCoordinateTextBox.Text)); }
     }     
 } 

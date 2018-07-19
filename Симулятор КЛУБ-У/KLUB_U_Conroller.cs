@@ -71,6 +71,7 @@ namespace Симулятор_КЛУБ_У
         {
             Klub_u = klub_u;
             ActualSpeed = 0;
+            MovingMode = 1;
             Frequency = 50;
             Info = "";
             klub_u.SetFrequency(Frequency);
@@ -157,6 +158,7 @@ namespace Симулятор_КЛУБ_У
 
         abstract public void OnManualCoordinateControlMode();
         abstract public void OffManualCoordinateControlMode();
+        abstract public void ManualChangeCoordinate(int coordinate);
 
         abstract public void OnAloneMode();
         abstract public void OffAloneMode();
