@@ -14,11 +14,16 @@ namespace Симулятор_КЛУБ_У
     {
         KLUB_U_Conroller Controller;
 
+        private bool[] onOrOffBlinkTrafficlightIndicator;
+        private bool[] blinkTrafficlightIndicator;
 
         public KLUB_U()
         {
             InitializeComponent();
             Controller = new My_KLUB_U_Controller(this);
+
+            blinkTrafficlightIndicator = new bool[]{false};
+            onOrOffBlinkTrafficlightIndicator = new bool[] { false };
         }
 
         
@@ -63,9 +68,9 @@ namespace Симулятор_КЛУБ_У
         // 0
         public void OnTrafficLight0Indicator() { trafficLight1Indicator.BackColor = Color.White; }
         public void OffTrafficLight0Indicator() { trafficLight1Indicator.BackColor = Color.Black; }
-        //TODO
-        public void OnTrafficLight0BlinkIndicator() { }
-        public void OffTrafficLight0BlinkIndicator() {  }
+        // 0 Blink 
+        public void OnTrafficLight0BlinkIndicator() { onOrOffBlinkTrafficlightIndicator[0] = true; OffTrafficLight0Indicator(); }
+        public void OffTrafficLight0BlinkIndicator() { onOrOffBlinkTrafficlightIndicator[0] = false; OffTrafficLight0Indicator(); }
         // 1
         public void OnTrafficLight1Indicator() { trafficLight2Indicator.BackColor = Color.Red; }
         public void OffTrafficLight1Indicator() { trafficLight2Indicator.BackColor = Color.FromArgb(255, 64, 0, 0); }
@@ -87,6 +92,28 @@ namespace Симулятор_КЛУБ_У
         // 7
         public void OnTrafficLight7Indicator() { trafficLight8Indicator.BackColor = Color.Green; }
         public void OffTrafficLight7Indicator() { trafficLight8Indicator.BackColor = Color.FromArgb(255, 0, 64, 0); }
+
+        private void blinkTrafficlightsTimer_Tick(object sender, EventArgs e){ for (int i = 0; i < blinkTrafficlightIndicator.Length; i++) blinkTrafficlights(i); }
+        
+        private void blinkTrafficlights(int number)
+        {
+            if (onOrOffBlinkTrafficlightIndicator[number]) {
+                if (blinkTrafficlightIndicator[number])
+                    switch (number)
+                    {
+                        case 0: OffTrafficLight0Indicator(); break;
+                        default: MessageBox.Show("ERROR: Off blink " + number.ToString()); break;
+                    }
+                else
+                    switch (number)
+                    {
+                        case 0: OnTrafficLight0Indicator(); break;
+                        default: MessageBox.Show("ERROR: On blink " + number.ToString()); break;
+                    }
+                blinkTrafficlightIndicator[number] = !blinkTrafficlightIndicator[number];
+            }
+        }
+
 
         //управлением индикатором запрета отпуска тормозов (при работе с системой САУТ)
         public void OnBanBrakeReleaseIndicator() { banBrakeReleaseIndicator.BackColor = Color.Red; }
@@ -114,10 +141,10 @@ namespace Симулятор_КЛУБ_У
         public void SetTime(String time) { timeTextBox.Text = time; }
 
         //вывод актуальной скорости на приборную панель
-        public void SetActualSpeed(byte speed) { actualSpeedTextBox.Text = speed.ToString(); }
+        public void SetActualSpeed(int speed) { actualSpeedTextBox.Text = speed.ToString(); }
         
         //вывод максимальной скорости на приборную панель
-        public void SetAllowableSpeed(byte speed) { allowableSpeedTextBox.Text = speed.ToString(); }
+        public void SetAllowableSpeed(int speed) { allowableSpeedTextBox.Text = speed.ToString(); }
 
         //вывод давления ТМ на приборную панель
         public void SetPressureTM(float pressure) { pressureTMTextBox.Text = pressure.ToString(); }
@@ -248,5 +275,38 @@ namespace Симулятор_КЛУБ_У
         }
 
         private void buttonManualControlCoordinate_Click(object sender, EventArgs e) { Controller.ManualChangeCoordinate(Convert.ToInt32(сontrolCoordinateTextBox.Text)); }
+
+        private void manualTrafficLightControlCheckBox_CheckedChanged(object sender, EventArgs e)
+        {
+            panelTrafficLightManualControl.Enabled = manualTrafficLightControlCheckBox.Checked;
+
+            if (manualTrafficLightControlCheckBox.Checked)
+                Controller.OnManualTrafficlightsControlMode();
+            else
+                Controller.OffManualTrafficlightsControlMode();
+        }
+
+        private void trafficLight0СheckBox_CheckedChanged(object sender, EventArgs e) { Controller.ManualChangeTrafficlight0(trafficLight0СheckBox.Checked); }
+        private void trafficLight1СheckBox_CheckedChanged(object sender, EventArgs e) { Controller.ManualChangeTrafficlight1(trafficLight1СheckBox.Checked); }
+        private void trafficLight2СheckBox_CheckedChanged(object sender, EventArgs e) { Controller.ManualChangeTrafficlight2(trafficLight2СheckBox.Checked); }
+        private void trafficLight3СheckBox_CheckedChanged(object sender, EventArgs e) { Controller.ManualChangeTrafficlight3(trafficLight3СheckBox.Checked); }
+        private void trafficLight4СheckBox_CheckedChanged(object sender, EventArgs e) { Controller.ManualChangeTrafficlight4(trafficLight4СheckBox.Checked); }
+        private void trafficLight5СheckBox_CheckedChanged(object sender, EventArgs e) { Controller.ManualChangeTrafficlight5(trafficLight5СheckBox.Checked); }
+        private void trafficLight6СheckBox_CheckedChanged(object sender, EventArgs e) { Controller.ManualChangeTrafficlight6(trafficLight6СheckBox.Checked); }
+        private void trafficLight7СheckBox_CheckedChanged(object sender, EventArgs e) { Controller.ManualChangeTrafficlight7(trafficLight7СheckBox.Checked); }
+        private void trafficLight0BlinkСheckBox_CheckedChanged(object sender, EventArgs e) { Controller.ManualChangeTrafficlight0Blink(trafficLight0BlinkСheckBox.Checked); }
+
+        public void SetManualTrafficLightsControl(bool[] trafficlights)
+        {
+            trafficLight0СheckBox.Checked = trafficlights[0];
+            trafficLight1СheckBox.Checked = trafficlights[1];
+            trafficLight2СheckBox.Checked = trafficlights[2];
+            trafficLight3СheckBox.Checked = trafficlights[3];
+            trafficLight4СheckBox.Checked = trafficlights[4];
+            trafficLight5СheckBox.Checked = trafficlights[5];
+            trafficLight6СheckBox.Checked = trafficlights[6];
+            trafficLight7СheckBox.Checked = trafficlights[7];
+            trafficLight0BlinkСheckBox.Checked = trafficlights[8];
+        }
     }     
 } 

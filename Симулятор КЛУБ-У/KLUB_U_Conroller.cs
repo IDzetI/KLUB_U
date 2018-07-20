@@ -71,10 +71,12 @@ namespace Симулятор_КЛУБ_У
         {
             Klub_u = klub_u;
             ActualSpeed = 0;
+            AllowableSpeed = 100;
+            Acceleration = 0;
             MovingMode = 1;
             Frequency = 50;
             Info = "";
-            klub_u.SetFrequency(Frequency);
+            Coordinate = 0;
             TrainParametrs = new Int32[]{ 0, 0, 0, 0, 0};
             
             // 8 - white blink
@@ -88,7 +90,25 @@ namespace Симулятор_КЛУБ_У
             // 0 - white     
             Trafficlights = new bool[] {    false, false, false, false, false, false, false, false,
                                             false };
-    }
+            ManualTrafficlightControl = false;
+            ManualCoordinateControl = false;
+
+            PathNumber = 1;
+            CorrectPath = true;
+            
+            klub_u.SetActualSpeed(ActualSpeed);
+            klub_u.SetAllowableSpeed(AllowableSpeed);
+            klub_u.SetCoordinate(Coordinate);
+            klub_u.SetStarion("");
+            klub_u.SetTime("12.34.51");
+            klub_u.SetTimeOnSchedule("13.00.00");
+            Klub_u.SetPressureTM((float)0.01);
+            Klub_u.SetPressureUR((float)0.23);
+            klub_u.SetFrequency(Frequency);
+            Klub_u.SetPathNumber(PathNumber, CorrectPath);
+            Klub_u.SetAcceleration(Acceleration);
+            Klub_u.OnMainPathIndicator();
+        }
 
 
 
@@ -145,6 +165,7 @@ namespace Симулятор_КЛУБ_У
         protected byte InputFrequency { get; set; }
         protected bool InputHasCassatte { get; set; }
         protected bool ManualCoordinateControl { get; set; }
+        protected bool ManualTrafficlightControl { get; set; }
         protected bool AloneMode { get; set; }
         protected bool RBP { get; set; }
 
@@ -160,6 +181,18 @@ namespace Симулятор_КЛУБ_У
         abstract public void OffManualCoordinateControlMode();
         abstract public void ManualChangeCoordinate(int coordinate);
 
+        abstract public void OnManualTrafficlightsControlMode();
+        abstract public void OffManualTrafficlightsControlMode();
+        abstract public void ManualChangeTrafficlight0Blink(bool state);
+        abstract public void ManualChangeTrafficlight0(bool state);
+        abstract public void ManualChangeTrafficlight1(bool state);
+        abstract public void ManualChangeTrafficlight2(bool state);
+        abstract public void ManualChangeTrafficlight3(bool state);
+        abstract public void ManualChangeTrafficlight4(bool state);
+        abstract public void ManualChangeTrafficlight5(bool state);
+        abstract public void ManualChangeTrafficlight6(bool state);
+        abstract public void ManualChangeTrafficlight7(bool state);
+        
         abstract public void OnAloneMode();
         abstract public void OffAloneMode();
 

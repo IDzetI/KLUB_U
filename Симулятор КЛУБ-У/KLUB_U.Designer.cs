@@ -109,10 +109,22 @@
             this.dashboard = new System.Windows.Forms.Panel();
             this.buttonRB = new System.Windows.Forms.Button();
             this.controlPanel = new System.Windows.Forms.Panel();
+            this.manualTrafficLightControlCheckBox = new System.Windows.Forms.CheckBox();
+            this.panelTrafficLightManualControl = new System.Windows.Forms.Panel();
+            this.trafficLight0BlinkСheckBox = new System.Windows.Forms.CheckBox();
+            this.trafficLight7СheckBox = new System.Windows.Forms.CheckBox();
+            this.trafficLight0СheckBox = new System.Windows.Forms.CheckBox();
+            this.trafficLight6СheckBox = new System.Windows.Forms.CheckBox();
+            this.trafficLight1СheckBox = new System.Windows.Forms.CheckBox();
+            this.trafficLight5СheckBox = new System.Windows.Forms.CheckBox();
+            this.trafficLight2СheckBox = new System.Windows.Forms.CheckBox();
+            this.trafficLight4СheckBox = new System.Windows.Forms.CheckBox();
+            this.trafficLight3СheckBox = new System.Windows.Forms.CheckBox();
             this.aloneCheckBox = new System.Windows.Forms.CheckBox();
             this.RBPcheckBox = new System.Windows.Forms.CheckBox();
             this.buttonRBP = new System.Windows.Forms.Button();
             this.panelControlCoordinate = new System.Windows.Forms.Panel();
+            this.buttonManualControlCoordinate = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.сontrolCoordinateTextBox = new System.Windows.Forms.TextBox();
             this.manualCoordinateControlCheckBox = new System.Windows.Forms.CheckBox();
@@ -125,7 +137,7 @@
             this.buttonRBS = new System.Windows.Forms.Button();
             this.RBcheckBox = new System.Windows.Forms.CheckBox();
             this.RBScheckBox = new System.Windows.Forms.CheckBox();
-            this.buttonManualControlCoordinate = new System.Windows.Forms.Button();
+            this.blinkTrafficlightsTimer = new System.Windows.Forms.Timer(this.components);
             this.dashboardTop.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.mainPathIndicator)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.literalPathIndicalor)).BeginInit();
@@ -146,6 +158,7 @@
             this.dashboardBot.SuspendLayout();
             this.dashboard.SuspendLayout();
             this.controlPanel.SuspendLayout();
+            this.panelTrafficLightManualControl.SuspendLayout();
             this.panelControlCoordinate.SuspendLayout();
             this.frequencyPanel.SuspendLayout();
             this.SuspendLayout();
@@ -467,15 +480,18 @@
             // 
             // nPathTextBox
             // 
+            this.nPathTextBox.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.nPathTextBox.BackColor = System.Drawing.Color.DimGray;
             this.nPathTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.nPathTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.nPathTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.nPathTextBox.ForeColor = System.Drawing.Color.GreenYellow;
-            this.nPathTextBox.Location = new System.Drawing.Point(0, 158);
+            this.nPathTextBox.Location = new System.Drawing.Point(0, 163);
+            this.nPathTextBox.Multiline = true;
             this.nPathTextBox.Name = "nPathTextBox";
             this.nPathTextBox.ReadOnly = true;
-            this.nPathTextBox.Size = new System.Drawing.Size(54, 31);
+            this.nPathTextBox.Size = new System.Drawing.Size(54, 22);
             this.nPathTextBox.TabIndex = 20;
+            this.nPathTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // labelNPath
             // 
@@ -1111,6 +1127,8 @@
             // 
             // controlPanel
             // 
+            this.controlPanel.Controls.Add(this.manualTrafficLightControlCheckBox);
+            this.controlPanel.Controls.Add(this.panelTrafficLightManualControl);
             this.controlPanel.Controls.Add(this.aloneCheckBox);
             this.controlPanel.Controls.Add(this.RBPcheckBox);
             this.controlPanel.Controls.Add(this.buttonRBP);
@@ -1122,6 +1140,145 @@
             this.controlPanel.Name = "controlPanel";
             this.controlPanel.Size = new System.Drawing.Size(483, 805);
             this.controlPanel.TabIndex = 22;
+            // 
+            // manualTrafficLightControlCheckBox
+            // 
+            this.manualTrafficLightControlCheckBox.AutoSize = true;
+            this.manualTrafficLightControlCheckBox.ForeColor = System.Drawing.Color.Black;
+            this.manualTrafficLightControlCheckBox.Location = new System.Drawing.Point(18, 147);
+            this.manualTrafficLightControlCheckBox.Name = "manualTrafficLightControlCheckBox";
+            this.manualTrafficLightControlCheckBox.Size = new System.Drawing.Size(143, 17);
+            this.manualTrafficLightControlCheckBox.TabIndex = 38;
+            this.manualTrafficLightControlCheckBox.Text = "Зелёный светофор №4";
+            this.manualTrafficLightControlCheckBox.UseVisualStyleBackColor = true;
+            this.manualTrafficLightControlCheckBox.CheckedChanged += new System.EventHandler(this.manualTrafficLightControlCheckBox_CheckedChanged);
+            // 
+            // panelTrafficLightManualControl
+            // 
+            this.panelTrafficLightManualControl.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.panelTrafficLightManualControl.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panelTrafficLightManualControl.Controls.Add(this.trafficLight0BlinkСheckBox);
+            this.panelTrafficLightManualControl.Controls.Add(this.trafficLight7СheckBox);
+            this.panelTrafficLightManualControl.Controls.Add(this.trafficLight0СheckBox);
+            this.panelTrafficLightManualControl.Controls.Add(this.trafficLight6СheckBox);
+            this.panelTrafficLightManualControl.Controls.Add(this.trafficLight1СheckBox);
+            this.panelTrafficLightManualControl.Controls.Add(this.trafficLight5СheckBox);
+            this.panelTrafficLightManualControl.Controls.Add(this.trafficLight2СheckBox);
+            this.panelTrafficLightManualControl.Controls.Add(this.trafficLight4СheckBox);
+            this.panelTrafficLightManualControl.Controls.Add(this.trafficLight3СheckBox);
+            this.panelTrafficLightManualControl.Enabled = false;
+            this.panelTrafficLightManualControl.Location = new System.Drawing.Point(37, 170);
+            this.panelTrafficLightManualControl.Name = "panelTrafficLightManualControl";
+            this.panelTrafficLightManualControl.Size = new System.Drawing.Size(185, 221);
+            this.panelTrafficLightManualControl.TabIndex = 37;
+            // 
+            // trafficLight0BlinkСheckBox
+            // 
+            this.trafficLight0BlinkСheckBox.AutoSize = true;
+            this.trafficLight0BlinkСheckBox.ForeColor = System.Drawing.Color.Black;
+            this.trafficLight0BlinkСheckBox.Location = new System.Drawing.Point(14, 195);
+            this.trafficLight0BlinkСheckBox.Name = "trafficLight0BlinkСheckBox";
+            this.trafficLight0BlinkСheckBox.Size = new System.Drawing.Size(170, 17);
+            this.trafficLight0BlinkСheckBox.TabIndex = 37;
+            this.trafficLight0BlinkСheckBox.Text = "Белый мигающий сфетофор";
+            this.trafficLight0BlinkСheckBox.UseVisualStyleBackColor = true;
+            this.trafficLight0BlinkСheckBox.CheckedChanged += new System.EventHandler(this.trafficLight0BlinkСheckBox_CheckedChanged);
+            // 
+            // trafficLight7СheckBox
+            // 
+            this.trafficLight7СheckBox.AutoSize = true;
+            this.trafficLight7СheckBox.ForeColor = System.Drawing.Color.Black;
+            this.trafficLight7СheckBox.Location = new System.Drawing.Point(14, 11);
+            this.trafficLight7СheckBox.Name = "trafficLight7СheckBox";
+            this.trafficLight7СheckBox.Size = new System.Drawing.Size(143, 17);
+            this.trafficLight7СheckBox.TabIndex = 29;
+            this.trafficLight7СheckBox.Text = "Зелёный светофор №4";
+            this.trafficLight7СheckBox.UseVisualStyleBackColor = true;
+            this.trafficLight7СheckBox.CheckedChanged += new System.EventHandler(this.trafficLight7СheckBox_CheckedChanged);
+            // 
+            // trafficLight0СheckBox
+            // 
+            this.trafficLight0СheckBox.AutoSize = true;
+            this.trafficLight0СheckBox.ForeColor = System.Drawing.Color.Black;
+            this.trafficLight0СheckBox.Location = new System.Drawing.Point(14, 172);
+            this.trafficLight0СheckBox.Name = "trafficLight0СheckBox";
+            this.trafficLight0СheckBox.Size = new System.Drawing.Size(113, 17);
+            this.trafficLight0СheckBox.TabIndex = 36;
+            this.trafficLight0СheckBox.Text = "Белый сфетофор";
+            this.trafficLight0СheckBox.UseVisualStyleBackColor = true;
+            this.trafficLight0СheckBox.CheckedChanged += new System.EventHandler(this.trafficLight0СheckBox_CheckedChanged);
+            // 
+            // trafficLight6СheckBox
+            // 
+            this.trafficLight6СheckBox.AutoSize = true;
+            this.trafficLight6СheckBox.ForeColor = System.Drawing.Color.Black;
+            this.trafficLight6СheckBox.Location = new System.Drawing.Point(14, 34);
+            this.trafficLight6СheckBox.Name = "trafficLight6СheckBox";
+            this.trafficLight6СheckBox.Size = new System.Drawing.Size(143, 17);
+            this.trafficLight6СheckBox.TabIndex = 30;
+            this.trafficLight6СheckBox.Text = "Зелёный светофор №3";
+            this.trafficLight6СheckBox.UseVisualStyleBackColor = true;
+            this.trafficLight6СheckBox.CheckedChanged += new System.EventHandler(this.trafficLight6СheckBox_CheckedChanged);
+            // 
+            // trafficLight1СheckBox
+            // 
+            this.trafficLight1СheckBox.AutoSize = true;
+            this.trafficLight1СheckBox.ForeColor = System.Drawing.Color.Black;
+            this.trafficLight1СheckBox.Location = new System.Drawing.Point(14, 149);
+            this.trafficLight1СheckBox.Name = "trafficLight1СheckBox";
+            this.trafficLight1СheckBox.Size = new System.Drawing.Size(123, 17);
+            this.trafficLight1СheckBox.TabIndex = 35;
+            this.trafficLight1СheckBox.Text = "Красный светофор";
+            this.trafficLight1СheckBox.UseVisualStyleBackColor = true;
+            this.trafficLight1СheckBox.CheckedChanged += new System.EventHandler(this.trafficLight1СheckBox_CheckedChanged);
+            // 
+            // trafficLight5СheckBox
+            // 
+            this.trafficLight5СheckBox.AutoSize = true;
+            this.trafficLight5СheckBox.ForeColor = System.Drawing.Color.Black;
+            this.trafficLight5СheckBox.Location = new System.Drawing.Point(14, 57);
+            this.trafficLight5СheckBox.Name = "trafficLight5СheckBox";
+            this.trafficLight5СheckBox.Size = new System.Drawing.Size(143, 17);
+            this.trafficLight5СheckBox.TabIndex = 31;
+            this.trafficLight5СheckBox.Text = "Зелёный светофор №2";
+            this.trafficLight5СheckBox.UseVisualStyleBackColor = true;
+            this.trafficLight5СheckBox.CheckedChanged += new System.EventHandler(this.trafficLight5СheckBox_CheckedChanged);
+            // 
+            // trafficLight2СheckBox
+            // 
+            this.trafficLight2СheckBox.AutoSize = true;
+            this.trafficLight2СheckBox.ForeColor = System.Drawing.Color.Black;
+            this.trafficLight2СheckBox.Location = new System.Drawing.Point(14, 126);
+            this.trafficLight2СheckBox.Name = "trafficLight2СheckBox";
+            this.trafficLight2СheckBox.Size = new System.Drawing.Size(159, 17);
+            this.trafficLight2СheckBox.TabIndex = 34;
+            this.trafficLight2СheckBox.Text = "Жёлто-красный светофор";
+            this.trafficLight2СheckBox.UseVisualStyleBackColor = true;
+            this.trafficLight2СheckBox.CheckedChanged += new System.EventHandler(this.trafficLight2СheckBox_CheckedChanged);
+            // 
+            // trafficLight4СheckBox
+            // 
+            this.trafficLight4СheckBox.AutoSize = true;
+            this.trafficLight4СheckBox.ForeColor = System.Drawing.Color.Black;
+            this.trafficLight4СheckBox.Location = new System.Drawing.Point(14, 80);
+            this.trafficLight4СheckBox.Name = "trafficLight4СheckBox";
+            this.trafficLight4СheckBox.Size = new System.Drawing.Size(143, 17);
+            this.trafficLight4СheckBox.TabIndex = 32;
+            this.trafficLight4СheckBox.Text = "Зелёный светофор №1";
+            this.trafficLight4СheckBox.UseVisualStyleBackColor = true;
+            this.trafficLight4СheckBox.CheckedChanged += new System.EventHandler(this.trafficLight4СheckBox_CheckedChanged);
+            // 
+            // trafficLight3СheckBox
+            // 
+            this.trafficLight3СheckBox.AutoSize = true;
+            this.trafficLight3СheckBox.ForeColor = System.Drawing.Color.Black;
+            this.trafficLight3СheckBox.Location = new System.Drawing.Point(14, 103);
+            this.trafficLight3СheckBox.Name = "trafficLight3СheckBox";
+            this.trafficLight3СheckBox.Size = new System.Drawing.Size(120, 17);
+            this.trafficLight3СheckBox.TabIndex = 33;
+            this.trafficLight3СheckBox.Text = "Жёлтый светофор";
+            this.trafficLight3СheckBox.UseVisualStyleBackColor = true;
+            this.trafficLight3СheckBox.CheckedChanged += new System.EventHandler(this.trafficLight3СheckBox_CheckedChanged);
             // 
             // aloneCheckBox
             // 
@@ -1172,6 +1329,17 @@
             this.panelControlCoordinate.Name = "panelControlCoordinate";
             this.panelControlCoordinate.Size = new System.Drawing.Size(139, 75);
             this.panelControlCoordinate.TabIndex = 5;
+            // 
+            // buttonManualControlCoordinate
+            // 
+            this.buttonManualControlCoordinate.ForeColor = System.Drawing.Color.Black;
+            this.buttonManualControlCoordinate.Location = new System.Drawing.Point(56, 45);
+            this.buttonManualControlCoordinate.Name = "buttonManualControlCoordinate";
+            this.buttonManualControlCoordinate.Size = new System.Drawing.Size(75, 23);
+            this.buttonManualControlCoordinate.TabIndex = 5;
+            this.buttonManualControlCoordinate.Text = "Задать";
+            this.buttonManualControlCoordinate.UseVisualStyleBackColor = true;
+            this.buttonManualControlCoordinate.Click += new System.EventHandler(this.buttonManualControlCoordinate_Click);
             // 
             // label1
             // 
@@ -1314,16 +1482,11 @@
             this.RBScheckBox.UseVisualStyleBackColor = true;
             this.RBScheckBox.CheckedChanged += new System.EventHandler(this.RBScheckBox_CheckedChanged);
             // 
-            // buttonManualControlCoordinate
+            // blinkTrafficlightsTimer
             // 
-            this.buttonManualControlCoordinate.ForeColor = System.Drawing.Color.Black;
-            this.buttonManualControlCoordinate.Location = new System.Drawing.Point(56, 45);
-            this.buttonManualControlCoordinate.Name = "buttonManualControlCoordinate";
-            this.buttonManualControlCoordinate.Size = new System.Drawing.Size(75, 23);
-            this.buttonManualControlCoordinate.TabIndex = 5;
-            this.buttonManualControlCoordinate.Text = "Задать";
-            this.buttonManualControlCoordinate.UseVisualStyleBackColor = true;
-            this.buttonManualControlCoordinate.Click += new System.EventHandler(this.buttonManualControlCoordinate_Click);
+            this.blinkTrafficlightsTimer.Enabled = true;
+            this.blinkTrafficlightsTimer.Interval = 500;
+            this.blinkTrafficlightsTimer.Tick += new System.EventHandler(this.blinkTrafficlightsTimer_Tick);
             // 
             // KLUB_U
             // 
@@ -1367,6 +1530,8 @@
             this.dashboard.PerformLayout();
             this.controlPanel.ResumeLayout(false);
             this.controlPanel.PerformLayout();
+            this.panelTrafficLightManualControl.ResumeLayout(false);
+            this.panelTrafficLightManualControl.PerformLayout();
             this.panelControlCoordinate.ResumeLayout(false);
             this.panelControlCoordinate.PerformLayout();
             this.frequencyPanel.ResumeLayout(false);
@@ -1475,5 +1640,17 @@
         private System.Windows.Forms.Button buttonRBP;
         private System.Windows.Forms.CheckBox aloneCheckBox;
         private System.Windows.Forms.Button buttonManualControlCoordinate;
+        private System.Windows.Forms.Panel panelTrafficLightManualControl;
+        private System.Windows.Forms.CheckBox trafficLight7СheckBox;
+        private System.Windows.Forms.CheckBox trafficLight0СheckBox;
+        private System.Windows.Forms.CheckBox trafficLight6СheckBox;
+        private System.Windows.Forms.CheckBox trafficLight1СheckBox;
+        private System.Windows.Forms.CheckBox trafficLight5СheckBox;
+        private System.Windows.Forms.CheckBox trafficLight2СheckBox;
+        private System.Windows.Forms.CheckBox trafficLight4СheckBox;
+        private System.Windows.Forms.CheckBox trafficLight3СheckBox;
+        private System.Windows.Forms.CheckBox trafficLight0BlinkСheckBox;
+        private System.Windows.Forms.CheckBox manualTrafficLightControlCheckBox;
+        private System.Windows.Forms.Timer blinkTrafficlightsTimer;
     }
 }
